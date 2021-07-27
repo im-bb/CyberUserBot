@@ -10,7 +10,7 @@ import requests
 from telethon.tl.types import InputMessagesFilterDocument
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 from telethon.tl.functions.channels import GetMessagesRequest
-from . import BRAIN_CHECKER, LOGS, bot, PLUGIN_CHANNEL_ID, CMD_HELP, LANGUAGE, CYBER_VERSION, PATTERNS
+from . import BRAIN_CHECKER, LOGS, bot, PLUGIN_CHANNEL_ID, CMD_HELP, LANGUAGE, CYBER_VERSION, PATTERNS, BOTLOG_CHATID, BOTLOG
 from .modules import ALL_MODULES
 import userbot.modules.sql_helper.mesaj_sql as MSJ_SQL
 import userbot.modules.sql_helper.galeri_sql as GALERI_SQL
@@ -22,6 +22,9 @@ import chromedriver_autoinstaller
 from json import loads, JSONDecodeError
 import re
 import userbot.cmdhelp
+
+
+QRUP = BOTLOG_CHATID
 
 
 ALIVE_STR = [
@@ -222,6 +225,13 @@ try:
 except PhoneNumberInvalidError:
     print(INVALID_PH)
     exit(1)
+    
+    
+async def startupcyber():
+    try:
+        await bot.send_message(QRUP, f"Salam! mən C Y B Ξ R UserBot\nBotumuzu qurduğunuz üçün təşəkkür edirəm!\nBotunuz aktivdir.\nC Y B Ξ R: {CYBER_VERSION}\n\nYardıma ehtiyyacınız olarsa @TheCyberSupport qrupuna yazın :)")
+    except BaseException:
+        print("Hmm deyəsən BOTLOG qrupunuzdan çıxmısınız və ya aktiv etməmisiniz..")    
 
 async def FotoDegistir (foto):
     FOTOURL = GALERI_SQL.TUM_GALERI[foto].foto
@@ -244,6 +254,7 @@ for module_name in ALL_MODULES:
 LOGS.info("Botunuz işləyir! Hər-hansısa bir söhbətə .alive yazaraq test edin."
           " Köməyə ehtiyacınız olarsa, dəstək qrupumuza gəlin t.me/TheCyberSupport")
 LOGS.info(f"Version: C Y B Ξ R {CYBER_VERSION}")
+bot.loop.run_until_complete(startupcyber())
 
 """
 if len(argv) not in (1, 3, 4):
