@@ -37,3 +37,9 @@ def dissprove(chat_id):
     if rem:
         SESSION.delete(rem)
         SESSION.commit()
+        
+
+def cyberizaceler():
+    rem = SESSION.query(PMPermit).all()
+    SESSION.close()
+    return rem 
