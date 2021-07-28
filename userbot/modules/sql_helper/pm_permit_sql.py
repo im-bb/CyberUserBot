@@ -8,10 +8,12 @@ from sqlalchemy import Column, String, UnicodeText, Boolean, Integer, distinct, 
 class PMPermit(BASE):
     __tablename__ = "pmpermit"
     chat_id = Column(String(14), primary_key=True)
+    reason = Column(String(127))
 
-    def __init__(self, chat_id):
+    def __init__(self, chat_id, reason=""):
         self.chat_id = str(chat_id) 
-
+        self.reason = reason
+        
 
 PMPermit.__table__.create(checkfirst=True)
 
@@ -26,8 +28,8 @@ def is_approved(chat_id):
         SESSION.close()
 
 
-def approve(chat_id):
-    adder = PMPermit(str(chat_id))
+def approve(chat_id, reason):
+    adder = PMPermit(str(chat_id), str(reason))
     SESSION.add(adder)
     SESSION.commit()
 
