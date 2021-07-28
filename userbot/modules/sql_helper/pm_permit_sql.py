@@ -29,7 +29,7 @@ def is_approved(chat_id):
 
 
 def approve(chat_id):
-    adder = PMPermit(str(chat_id)
+    adder = PMPermit(str(chat_id))
     SESSION.add(adder)
     SESSION.commit()
 
