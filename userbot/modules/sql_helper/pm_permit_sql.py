@@ -10,7 +10,7 @@ class PMPermit(BASE):
     chat_id = Column(String(14), primary_key=True)
 
     def __init__(self, chat_id):
-        self.chat_id = str(chat_id)  # ensure string
+        self.chat_id = str(chat_id) 
 
 
 PMPermit.__table__.create(checkfirst=True)
@@ -36,10 +36,9 @@ def dissprove(chat_id):
     rem = SESSION.query(PMPermit).get(str(chat_id))
     if rem:
         SESSION.delete(rem)
-        SESSION.commit()
-        
+        SESSION.commit()      
 
-def cyberizaceler():
+def cybericazeler():
     rem = SESSION.query(PMPermit).all()
     SESSION.close()
-    return rem 
+    return rem
