@@ -87,13 +87,13 @@ def register(**args):
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
                     eventtext = str(check.text)
-                    text = "**C Y B Σ R XƏTA BİLDİRİŞİ**\n"
-                    link = "[C Y B Σ R Dəstək Qrupuna](https://t.me/TheCyberSupport)"
+                    text = "**C Y B Ξ R XƏTA BİLDİRİŞİ**\n"
+                    link = "[C Y B Ξ R Support Qrupuna](https://t.me/TheCyberSupport)"
                     if len(eventtext)<10:
-                        text += f"\n**⚙ Əmr:** {eventtext}\n"
+                        text += f"\n**⚙ Səbəb:** {eventtext}\n"
                     text += "\n🔸️ İstəsəniz bunu bizə bildirə bilərsiniz."
                     text += f" Sadəcə bu mesajı {link} göndərin.\n"
-                    text += "Xəta və tarix xaricində heç bir şey qeyd edilmir.\n"
+                    text += "Xəta və tarix xaricində heçnə qeyd edilmir.\n"
 
                     ftext = "========== XEBERDARLIQ =========="
                     ftext += "\nBu fayl sadəcə bura yüklənib,"
