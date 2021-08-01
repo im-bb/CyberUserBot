@@ -234,6 +234,22 @@ async def _(cyber):
     await cyber.edit("`Qadağan olunmuş istifadəçilər siyahıdan silindi...`")
 	
 	
+	
+@register(outgoing=True, pattern=r"^\.oxu(?: |$)(.*)")
+@register(outgoing=True, pattern=r"^\.open(?: |$)(.*)")
+async def _(event):
+    b = await event.client.download_media(await event.get_reply_message())
+    a = open(b, "r")
+    c = a.read()
+    a.close()
+    a = await event.reply("**Fayl oxunur...**")
+    if len(c) > 4095:
+        await a.edit("`Bağışlayın, bir xəta baş verdi.`")
+    else:
+        await event.client.send_message(event.chat_id, f"```{c}```")
+        await a.delete()
+    os.remove(b)	
+	
  
 @register(outgoing=True, pattern="^.sendbot (.*)")
 async def sendbot(cyber):
@@ -279,4 +295,9 @@ Help.add()
 
 Help = CmdHelp('pm')
 Help.add_command('pm', '<@istifadeci-adi> <mesaj>', 'Qeyd etdiyiniz mesajı istədiyiniz şəxsə göndərər.')
+Help.add()
+
+
+Help = CmdHelp('reveal')
+Help.add_command('oxu', '<bir fayla cavab>', 'Faylın məzmununu oxuyun və Telegram mesajı olaraq göndərin.')
 Help.add()
