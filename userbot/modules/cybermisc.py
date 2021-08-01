@@ -235,8 +235,8 @@ async def _(cyber):
 	
 	
 	
-@register(outgoing=True, pattern=r"^\.oxu(?: |$)(.*)")
-@register(outgoing=True, pattern=r"^\.open(?: |$)(.*)")
+@register(outgoing=True, disable_errors=True, pattern=r"^\.oxu(?: |$)(.*)")
+@register(outgoing=True, disable_errors=True, pattern=r"^\.open(?: |$)(.*)")
 async def _(event):
     b = await event.client.download_media(await event.get_reply_message())
     a = open(b, "r")
@@ -248,7 +248,23 @@ async def _(event):
     else:
         await event.client.send_message(event.chat_id, f"```{c}```")
         await a.delete()
-    os.remove(b)	
+    os.remove(b)
+
+
+@register(outgoing=True, disable_errors=True, pattern=r"^\.repack(?: |$)(.*)")
+async def _(event):
+    a = await event.get_reply_message()
+    input_str = event.pattern_match.group(1)
+    b = open(input_str, "w")
+    b.write(str(a.message))
+    b.close()
+    a = await event.reply(f"`{input_str}` **hazırlanır...**")
+    await asyncio.sleep(2)
+    await a.edit(f"`{input_str}` **göndərilir...**")
+    await asyncio.sleep(2)
+    await event.client.send_file(event.chat_id, input_str)
+    await a.delete()
+    os.remove(input_str)
 	
  
 @register(outgoing=True, pattern="^.sendbot (.*)")
@@ -298,6 +314,7 @@ Help.add_command('pm', '<@istifadeci-adi> <mesaj>', 'Qeyd etdiyiniz mesajı ist�
 Help.add()
 
 
-Help = CmdHelp('reveal')
+Help = CmdHelp('files')
 Help.add_command('oxu', '<bir fayla cavab>', 'Faylın məzmununu oxuyun və Telegram mesajı olaraq göndərin.')
+Help.add_command('repack', '<bir mətnə cavab> <fayl_adı.py>', 'Cavab verdiyiniz mətni plugin edib atar.')
 Help.add()
