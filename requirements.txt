@@ -42,7 +42,10 @@ sqlalchemy>=1.2
 spotdl
 selenium>=3.141.0
 telethon==1.23.0
+pytgcalls
+pyrogram
 telethon-session-sqlalchemy>=0.2.6
+py-tgcalls-wrapper
 urbandict>=0.5
 wikipedia>=1.4.0
 spotify_token
