@@ -2,10 +2,12 @@
 #
 # Cooming soon
 
+
 class Text:
     nece = "`Bir mp3 faylına cavab verin və ya bir mahnı adı qeyd edin!`"
     admin_deyilsen = "`Bunu etmək üçün icazəniz yoxdur!`"
     yukle = "`Yüklənir...`"
+    uploading = "`Hazırlanır..`"
     yardim = """
 **Əmrlər:**\n
   - `{x}alive` - __asistanın aktiv olub olmadığını yoxlayın.__
@@ -15,6 +17,11 @@ class Text:
   - `{x}song <mahnı adı>` - __musiqini yükləyər.__
 **CYBER USERBOT**"""
 
+
+# class Extra:
+
+    
+   
 async def mahniniseslendir(pycalls, message, song):
     try:
         await pycalls.stream(message.chat.id, song)
