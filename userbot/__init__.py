@@ -98,6 +98,11 @@ AUTO_UPDATE =  sb(os.environ.get("AUTO_UPDATE", "True"))
 BOTLOG = sb(os.environ.get("BOTLOG", "False"))
 LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "False"))
 
+# CYBER
+CSESSION = os.environ.get("CSESSION", None)
+ADMINLER = os.environ.get("ADMINLER", None)
+PREFIKS = os.environ.get("PREFIKS", None)
+
 # Hey! Bu botdur. qormxa ;)
 PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
 
