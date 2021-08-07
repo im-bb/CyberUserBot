@@ -1,6 +1,5 @@
 # Copyright (C) 2021 Farid Dadashzade
 
-
 import asyncio
 import os
 import time
@@ -148,5 +147,4 @@ Help.add_command('sıxışdır', '<fayla cavab>', 'Bir faylı Zip faylına çevi
 Help.add_command('addzip', '<fayla cavab>', 'Cavab verdiyiniz faylı userbot serverinə yükləyər.')
 Help.add_command('upzip', None, 'UserBot serverində olan bir faylı göndərər.')
 Help.add_command('rmzip', None, 'Zip siyahısını təmizləyər.')
-Help.add_info('@faridxz tərəfindən @TheCyberUserBot üçün hazırlanmışdır.')
 Help.add()           
