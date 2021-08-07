@@ -159,14 +159,7 @@ async def pins(event):
         return
 
     await event.edit(LANG["DOWNLOADING"])
-    movcud = f"./userbot/modules/{reply_message.file.name}"
-
-    if os.path.exists(movcud):
-        await event.edit("Hey sən artıq bu plugini bir dəfə yükləmisən!")
-        return
-
-    dosyaAdi = reply_message.file.name
-    dosya = await event.client.download_media(reply_message, "./userbot/modules/") 
+    dosya = await event.client.download_media(reply_message, "./userbot/modules/")
     
     try:
         spec = importlib.util.spec_from_file_location(dosya, dosya)
@@ -180,9 +173,8 @@ async def pins(event):
 # thanks Andencento for https://github.com/Andencento/Andencento/blob/main/plugins/installer.py
 
     dosy = open(dosya, "r").read()
-    
     for dosya2 in DANGERCONFIGS:
-        await event.edit("Diqqət plugində təhlükə aşkar edildi!\nXahiş edirəm bu plugindən istifadə etməyin!\n\nPlugini silmək üçün `.premove {reply_message.file.name}` yazın.")
+        await event.edit("Diqqət plugində təhlükə aşkar edildi!\nXahiş edirəm bu plugindən istifadə etməyin!\n\nPlugini silmək üçün `.premove {dosyaAdi}` yazın.")
     return os.remove("./userbot/modules" + dosya)
     
     dosy = open(dosya, "r").read()
