@@ -1,7 +1,6 @@
 # Copyright (C) 2021 Farid Dadashzade
 # 
 # CyberUserBot - faridxz
-#
 
 import os
 import time
@@ -108,14 +107,17 @@ PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
 
 # Credits: https://github.com/TamilBots/TamilUserBot/blob/9ce736688d37fa42f9716f2d2b2700c1eb1d4bcd/userbot/__init__.py#L140
 
+
 async def get_call(event):
     mm = await event.client(getchat(event.chat_id))
     xx = await event.client(getvc(mm.full_chat.call))
     return xx.call
 
+
 # .cyber əmri üçün
 CYBER_EMOJI = os.environ.get(
     "CYBER_EMOJI") or "✦ "
+
 
 # for .salive command
 ALIVE_TEXT = os.environ.get(
