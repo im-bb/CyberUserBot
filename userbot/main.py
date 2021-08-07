@@ -72,7 +72,7 @@ AFKSTR = [
     "Hey, sahibim hal-hazırda burada deyil..\nqayıtdığında sizinlə əlaqə saxlayacaqdır.",
 ]
 
-UNAPPROVED_MSG = ("`Salam,` {mention} `!\nBu bir avtomatik mesajdır. Narahat olma.\n\n`"
+UNAPPROVED_MSG = ("`Salam,` {mention} `!\nBu bir avtomatik mesajdır.\nNarahat olma.\n\n`"
                   "`Sahibim sənə PM yazma icazəsi verməyib. `"
                   "`Zəhmət olmasa sahibimin aktiv olmasını gözləyin, o bəzən PM yazmağa icazə verər.\n\n`"
                   "`Bildiyim qədəri ilə o beynini itirib insanlara PM icazəsi vermir.`")
