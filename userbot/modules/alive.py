@@ -20,15 +20,6 @@ from userbot import (
 
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
-from telethon.tl.types import (
-    MessageEntityBold,
-    MessageEntityCode,
-    MessageEntityItalic,
-    MessageEntityPre,
-    MessageEntityTextUrl,
-    MessageEntityUnderline,
-)
-
 
 async def get_readable_time(seconds: int) -> str:
     count = 0
@@ -53,7 +44,6 @@ async def get_readable_time(seconds: int) -> str:
     up_time += ", ".join(time_list)
 
     return up_time
-
 
 
 @register(outgoing=True, disable_errors=True, pattern=r"^\.salive(?: |$)(.*)")
