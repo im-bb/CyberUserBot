@@ -12,7 +12,7 @@ import time
 from pathlib import Path
 import traceback
 
-from userbot import CMD_HELP, bot, tgbot, PLUGIN_CHANNEL_ID, PATTERNS, BOTLOG, BOTLOG_CHATID, DANGERCONFIGS
+from userbot import CMD_HELP, bot, tgbot, PLUGIN_CHANNEL_ID, PATTERNS, BOTLOG, BOTLOG_CHATID, DANGERCONFIGS, MYID, JARVIS
 from userbot.events import register
 from userbot.main import extractCommands
 import userbot.cmdhelp
