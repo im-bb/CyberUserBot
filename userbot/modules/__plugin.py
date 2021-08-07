@@ -2,14 +2,17 @@
 #
 # CYBERUSERBOT - FARIDXZ
 
-import re
 import os
+import sys
 from telethon.tl.types import DocumentAttributeFilename, InputMessagesFilterDocument
 import importlib
+import asyncio
+import re
 import time
+from pathlib import Path
 import traceback
 
-from userbot import CMD_HELP, bot, tgbot, PLUGIN_CHANNEL_ID, PATTERNS, MYID, DANGERCONFIGS
+from userbot import CMD_HELP, bot, tgbot, PLUGIN_CHANNEL_ID, PATTERNS, BOTLOG, BOTLOG_CHATID, DANGERCONFIGS
 from userbot.events import register
 from userbot.main import extractCommands
 import userbot.cmdhelp
@@ -156,7 +159,14 @@ async def pins(event):
         return
 
     await event.edit(LANG["DOWNLOADING"])
-    dosya = await event.client.download_media(reply_message, "./userbot/modules/")
+    movcud = f"./userbot/modules/{reply_message.file.name}"
+
+    if os.path.exists(movcud):
+        await event.edit("Hey sən artıq bu plugini bir dəfə yükləmisən!")
+        return
+
+    dosyaAdi = reply_message.file.name
+    dosya = await event.client.download_media(reply_message, "./userbot/modules/") 
     
     try:
         spec = importlib.util.spec_from_file_location(dosya, dosya)
@@ -167,6 +177,14 @@ async def pins(event):
         await event.edit(f"{LANG['PLUGIN_BUGGED']} {e}`")
         return os.remove("./userbot/modules/" + dosya)
 
+# thanks Andencento for https://github.com/Andencento/Andencento/blob/main/plugins/installer.py
+
+    dosy = open(dosya, "r").read()
+    
+    for dosya2 in DANGERCONFIGS:
+        await event.edit("Diqqət plugində təhlükə aşkar edildi!\nXahiş edirəm bu plugindən istifadə etməyin!\n\nPlugini silmək üçün `.premove {reply_message.file.name}` yazın.")
+    return os.remove("./userbot/modules" + dosya)
+    
     dosy = open(dosya, "r").read()
     if re.search(r"@tgbot\.on\(.*pattern=(r|)\".*\".*\)", dosy):
         komu = re.findall(r"\(.*pattern=(r|)\"(.*)\".*\)", dosy)
@@ -188,7 +206,7 @@ async def pins(event):
                 return await event.edit(f'**Plugin uğurla yükləndi!**\n__Plugin əmrləri və istifadəsi haqqında məlumat almaq üçün__ `.cyber {cmdhelp}` __yazın.__')
             else:
                 await reply_message.forward_to(PLUGIN_CHANNEL_ID)
-                userbot.cmdhelp.CmdHelp(dosya).add_warning('Komutlar bulunamadı!').add()
+                userbot.cmdhelp.CmdHelp(dosya).add_warning('Əmrlər tapılmadı!').add()
                 return await event.edit(LANG['PLUGIN_DESCLESS'])
         else:
             if re.search(r'CmdHelp\(.*\)', dosy):
