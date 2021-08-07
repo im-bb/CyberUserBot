@@ -202,7 +202,8 @@ async def pins(event):
                 dosyaAdi = reply_message.file.name.replace('.py', '')
                 extractCommands(dosya)
                 await reply_message.forward_to(PLUGIN_CHANNEL_ID)
-                return await event.edit(f'**Plugin uğurla yükləndi!**\n__Pluginin əmrləri və istifadəsi haqqında məlumat almaq üçün__ `.cyber {dosyaAdi}` __yazın.__'
+                return await event.edit(f'**Plugin uğurla yükləndi!**\n__Pluginin əmrləri və istifadəsi haqqında məlumat almaq üçün__ `.cyber {dosyaAdi}` __yazın.__')
+            
 
 @register(outgoing=True, pattern="^.premove ?(.*)")
 async def premove(event):
