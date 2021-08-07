@@ -170,13 +170,6 @@ async def pins(event):
         await event.edit(f"{LANG['PLUGIN_BUGGED']} {e}`")
         return os.remove("./userbot/modules/" + dosya)
 
-# thanks Andencento for https://github.com/Andencento/Andencento/blob/main/plugins/installer.py
-
-    dosy = open(dosya, "r").read()
-    for dosya2 in DANGERCONFIGS:
-        await event.edit("Diqqət plugində təhlükə aşkar edildi!\nXahiş edirəm bu plugindən istifadə etməyin!\n\nPlugini silmək üçün `.premove pluginadı.py` yazın.")
-    return os.remove(dosya)
-    
     dosy = open(dosya, "r").read()
     if re.search(r"@tgbot\.on\(.*pattern=(r|)\".*\".*\)", dosy):
         komu = re.findall(r"\(.*pattern=(r|)\"(.*)\".*\)", dosy)
@@ -198,7 +191,7 @@ async def pins(event):
                 return await event.edit(f'**Plugin uğurla yükləndi!**\n__Plugin əmrləri və istifadəsi haqqında məlumat almaq üçün__ `.cyber {cmdhelp}` __yazın.__')
             else:
                 await reply_message.forward_to(PLUGIN_CHANNEL_ID)
-                userbot.cmdhelp.CmdHelp(dosya).add_warning('Əmrlər tapılmadı!').add()
+                userbot.cmdhelp.CmdHelp(dosya).add_warning('Komutlar bulunamadı!').add()
                 return await event.edit(LANG['PLUGIN_DESCLESS'])
         else:
             if re.search(r'CmdHelp\(.*\)', dosy):
@@ -209,7 +202,7 @@ async def pins(event):
                 dosyaAdi = reply_message.file.name.replace('.py', '')
                 extractCommands(dosya)
                 await reply_message.forward_to(PLUGIN_CHANNEL_ID)
-                return await event.edit(f'**Plugin uğurla yükləndi!**\n__Pluginin əmrləri və istifadəsi haqqında məlumat almaq üçün__ `.cyber {dosyaAdi}` __yazın.__')
+                return await event.edit(f'**Plugin uğurla yükləndi!**\n__Pluginin əmrləri və istifadəsi haqqında məlumat almaq üçün__ `.cyber {dosyaAdi}` __yazın.__'
 
 @register(outgoing=True, pattern="^.premove ?(.*)")
 async def premove(event):
