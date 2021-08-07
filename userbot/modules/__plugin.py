@@ -175,7 +175,7 @@ async def pins(event):
     dosy = open(dosya, "r").read()
     for dosya2 in DANGERCONFIGS:
         await event.edit("Diqqət plugində təhlükə aşkar edildi!\nXahiş edirəm bu plugindən istifadə etməyin!\n\nPlugini silmək üçün `.premove pluginadı.py` yazın.")
-    return os.remove("./userbot/modules" + dosya)
+    return os.remove(dosya)
     
     dosy = open(dosya, "r").read()
     if re.search(r"@tgbot\.on\(.*pattern=(r|)\".*\".*\)", dosy):
