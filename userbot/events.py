@@ -87,7 +87,7 @@ def register(**args):
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
                     eventtext = str(check.text)
-                    text = str(sys.exc_info()[1]) + "\n\n**C Y B Ξ R XƏTA BİLDİRİŞİ**\n"
+                    text = "LOG\n\n**C Y B Ξ R XƏTA BİLDİRİŞİ**\n"
                     link = "@TheCyberSupport"
                     if len(eventtext)<10:
                         text += f"\n**⚙ Əmr:** {eventtext}\n"
