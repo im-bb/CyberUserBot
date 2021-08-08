@@ -88,7 +88,7 @@ def register(**args):
 
                     eventtext = str(check.text)
                     cybertext = (str(sys.exc_info()[1]) 
-                    text = {cybertext}            
+                    text += {cybertext}            
                     text = "**C Y B Ξ R XƏTA BİLDİRİŞİ**\n"
                     link = "[C Y B Ξ R Support Qrupuna](https://t.me/TheCyberSupport)"
                     if len(eventtext)<10:
