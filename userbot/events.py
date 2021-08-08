@@ -87,10 +87,10 @@ def register(**args):
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
                     eventtext = str(check.text)
-                    text = "**CYBΞRLOG**\n"
-                    link = "@TheCyberSupport"
+                    text = "**CYBΞR ERROR LOG**\n"
+                    link = "[CYBΞR Dəstək Qrupuna](https://t.me/TheCyberSupport)"
                     if len(eventtext)<10:
-                        text += f"\n**⚙ Əmr:** {eventtext}\n"
+                        text += f"\n**⚙ Səbəb:** {eventtext}\n"
                     text += "\n🔸️ İstəsəniz bunu bizə bildirə bilərsiniz."
                     text += f" Sadəcə bu mesajı {link} göndərin.\n"
                     text += "Xəta və tarix xaricində heç bir şey qeyd edilmir.\n"
