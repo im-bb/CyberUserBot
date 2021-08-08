@@ -88,11 +88,12 @@ def register(**args):
 
                     eventtext = str(check.text)
                     cybertext = (str(sys.exc_info()[1]) 
-                    text += {cybertext}            
                     text = "**C Y B Ξ R XƏTA BİLDİRİŞİ**\n"
                     link = "[C Y B Ξ R Support Qrupuna](https://t.me/TheCyberSupport)"
                     if len(eventtext)<10:
                         text += f"\n**⚙ Səbəb:** {eventtext}\n"
+                    if len(cybertext)<10:
+                        text += f"\n{cybertext}\n\n"             
                     text += "\n🔸️ İstəsəniz bunu bizə bildirə bilərsiniz."
                     text += f" Sadəcə bu mesajı {link} göndərin.\n"
                     text += "Xəta və tarix xaricində heçnə qeyd edilmir.\n"
