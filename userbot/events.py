@@ -88,7 +88,7 @@ def register(**args):
 
                     eventtext = str(check.text)
                     text = str(sys.exc_info()[1]) + "\n\n**C Y B Ξ R XƏTA BİLDİRİŞİ**\n"
-                    link = "[C Y B Ξ R Dəstək Qrupuna](https://t.me/TheCyberSupport)"
+                    link = "@TheCyberSupport"
                     if len(eventtext)<10:
                         text += f"\n**⚙ Əmr:** {eventtext}\n"
                     text += "\n🔸️ İstəsəniz bunu bizə bildirə bilərsiniz."
