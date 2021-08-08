@@ -10,6 +10,7 @@ import asyncio
 import re
 import time
 from pathlib import Path
+from os.path import exists
 import traceback
 
 from userbot import CMD_HELP, bot, tgbot, PLUGIN_CHANNEL_ID, PATTERNS, BOTLOG, BOTLOG_CHATID, DANGERCONFIGS, MYID, JARVIS
@@ -125,30 +126,8 @@ async def plist(event):
                 yuklenen += f"☑ {plugin.file.name}\n"
         await event.edit(yuklenen)
     else:
-        await event.edit(LANG["TEMP_PLUGIN"])
-        
-@register(incoming=True, jarvis=True, pattern="^Plugin siyahısı gətirilir")
-async def jarvisplist(ups):
-    if ups.is_reply:
-        reply = await ups.get_reply_message()
-        reply_user = await ups.client.get_entity(reply.from_id)
-        ren = reply_user.id
-        if ren == MYID:
-            usp = await ups.reply(LANG["PLIST_CHECKING"])
-            yuklenen = f"{LANG['PLIST']}\n\n"
-            async for plugin in ups.client.iter_messages(PLUGIN_CHANNEL_ID, filter=InputMessagesFilterDocument):
-                try:
-                    dosyaismi = plugin.file.name.split(".")[1]
-                except:
-                    continue
+        await event.edit(LANG["TEMP_PLUGIN"])           
 
-                if dosyaismi == "py":
-                    yuklenen += f"☑ {plugin.file.name}\n"
-            await usp.edit(yuklenen)
-        else:
-            await usp.edit(LANG["TEMP_PLUGIN"])
-    else:
-        return        
 
 @register(outgoing=True, pattern="^.pinstall")
 async def pins(event):
@@ -159,8 +138,21 @@ async def pins(event):
         return
 
     await event.edit(LANG["DOWNLOADING"])
-    dosya = await event.client.download_media(reply_message, "./userbot/modules/")
+    already2 = f"./userbot/modules/{reply_message.file.name}"
     
+    if os.path.exists(already2):
+        await event.edit("Bu plugini artıq yükləndiyindən onu yükləmək mümkün olmadı!")
+        return
+
+    dosyaAdi = reply_message.file.name
+  #  plugins = await event.client.get_messages('@TheCyberPlugin', limit=None, search=dosyaAdi, filter=InputMessagesFilterDocument)
+
+  #  if len(plugins) == 0:
+   #     await event.edit('')
+ #       return
+
+    dosya = await event.client.download_media(reply_message, "./userbot/modules/")
+
     try:
         spec = importlib.util.spec_from_file_location(dosya, dosya)
         mod = importlib.util.module_from_spec(spec)
@@ -188,7 +180,7 @@ async def pins(event):
             if re.search(r'CmdHelp\(.*\)', dosy):
                 cmdhelp = re.findall(r"CmdHelp\([\"'](.*)[\"']\)", dosy)[0]
                 await reply_message.forward_to(PLUGIN_CHANNEL_ID)
-                return await event.edit(f'**Plugin uğurla yükləndi!**\n__Plugin əmrləri və istifadəsi haqqında məlumat almaq üçün__ `.cyber {cmdhelp}` __yazın.__')
+                return await event.edit(f'**Plugin uğurla yükləndi!**\n__Pluginin istifadəsini öyrənmək üçün__ `.cyber {cmdhelp}` __yazın.__')
             else:
                 await reply_message.forward_to(PLUGIN_CHANNEL_ID)
                 userbot.cmdhelp.CmdHelp(dosya).add_warning('Komutlar bulunamadı!').add()
@@ -197,12 +189,12 @@ async def pins(event):
             if re.search(r'CmdHelp\(.*\)', dosy):
                 cmdhelp = re.findall(r"CmdHelp\([\"'](.*)[\"']\)", dosy)[0]
                 await reply_message.forward_to(PLUGIN_CHANNEL_ID)
-                return await event.edit(f'**Plugin uğurla yükləndi!**\n__Pluginin əmrləri və istifadəsi haqqında məlumat almaq üçün__ `.cyber {cmdhelp}` __yazın.__')
+                return await event.edit(f'**Plugin uğurla yükləndi!**\n__Pluginin istifadəsini öyrənmək üçün__ `.cyber {cmdhelp}` __yazın.__')
             else:
                 dosyaAdi = reply_message.file.name.replace('.py', '')
                 extractCommands(dosya)
                 await reply_message.forward_to(PLUGIN_CHANNEL_ID)
-                return await event.edit(f'**Plugin uğurla yükləndi!**\n__Pluginin əmrləri və istifadəsi haqqında məlumat almaq üçün__ `.cyber {dosyaAdi}` __yazın.__')
+                return await event.edit(f'**Plugin uğurla yükləndi!**\n__Pluginin istifadəsini öyrənmək üçün__ `.cyber {cmdhelp}` __yazın.__')
             
 
 @register(outgoing=True, pattern="^.premove ?(.*)")
@@ -268,4 +260,5 @@ async def ptest(event):
         return os.remove("./userbot/temp_plugins/" + dosya)
 
     return await event.edit(f'**Modul uğurla yükləndi!**\
-    \n__Modulu yoxlaya bilərsiniz. Botu yenidən başlatdığınzda plugin işləməyəcəkdir.__')
+    \n__Modulu yoxlaya bilərsiniz.\nBotu yenidən başlatdığınızda plugin işləməyəcəkdir.__')
+
