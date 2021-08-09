@@ -72,7 +72,7 @@ AFKSTR = [
     "Hey, sahibim hal-hazırda burada deyil..\nqayıtdığında sizinlə əlaqə saxlayacaqdır.",
 ]
 
-UNAPPROVED_MSG = ("`Salam,` {mention} `!\nBu bir avtomatik mesajdır.\nNarahat olma.\n\n`"
+UNAPPROVED_MSG = ("`Salam,` {mention} `\nBu bir avtomatik mesajdır.\nNarahat olma.\n\n`"
                   "`Sahibim sənə PM yazma icazəsi verməyib. `"
                   "`Zəhmət olmasa sahibimin aktiv olmasını gözləyin, o bəzən PM yazmağa icazə verər.\n\n`"
                   "`Bildiyim qədəri ilə o beynini itirib insanlara PM icazəsi vermir.`")
@@ -154,7 +154,7 @@ try:
     cyberbl = requests.get('https://raw.githubusercontent.com/FaridDadashzade/deploy/main/cyberbl.json').json()
     if idim in cyberbl:
         bot.send_message("me", f"`C Y B Ξ R adminləri tərəfindən botdan istifadə haqqınız alındı.`")
-        LOGS.error("C Y B Ξ R adminləri tərəfindən botunuz dayandırıldı.")
+        LOGS.error("C Y B Ξ R adminləri tərəfindən botunuz deaktiv edildi.")
         bot.disconnect()
 
     
