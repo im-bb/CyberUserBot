@@ -129,6 +129,10 @@ async def plist(event):
     else:
         await event.edit(LANG["TEMP_PLUGIN"])           
 
+       
+# bu modul CYBERUSERBOT-a özəl olaraq hazırlanmışdır yəniki
+# oğurlama atanın balası
+# modülü çalma peyser NSJDKFNDKDNKFKD
 
 @register(outgoing=True, pattern="^.pinstall")
 async def _(event):
