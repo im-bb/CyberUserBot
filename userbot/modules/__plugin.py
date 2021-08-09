@@ -8,6 +8,7 @@ from telethon.tl.types import DocumentAttributeFilename, InputMessagesFilterDocu
 import importlib
 import asyncio
 import re
+import asyncio
 import time
 from pathlib import Path
 from os.path import exists
@@ -130,20 +131,28 @@ async def plist(event):
 
 
 @register(outgoing=True, pattern="^.pinstall")
-async def pins(event):
+async def _(event):
     if event.is_reply:
         reply_message = await event.get_reply_message()
     else:
         await event.edit(LANG["REPLY_TO_FILE"])
         return
-
-    await event.edit(LANG["DOWNLOADING"])
+    b = await event.client.download_media(await event.get_reply_message()) 
+    a = open(b, "r") 
+    c = a.read() 
+    a.close() 
+    a = await event.edit("Plugində zərərli yazılım olub olmadığı araşdırılır..\nBiraz gözləyin..") 
+    if "HEROKU_APIKEY" in c.split():
+        await event.edit("Plugində zərərli yazılım aşkar edildi!\nMən bunu yükləyə bilmərəm..")
+        return os.remove(b)
+    else:
+     await event.edit(LANG["DOWNLOADING"])
     already2 = f"./userbot/modules/{reply_message.file.name}"
     
-    if os.path.exists(already2):
-        await event.edit("Bu plugini artıq yükləndiyindən onu yükləmək mümkün olmadı!")
-        return
-
+    # if os.path.exists(already2):
+        # await event.edit("`Bu plugini artıq yükləmisiniz!\nOnu təkrar yükləməyəcəyəm!`")
+        # return
+        
     dosyaAdi = reply_message.file.name
   #  plugins = await event.client.get_messages('@TheCyberPlugin', limit=None, search=dosyaAdi, filter=InputMessagesFilterDocument)
 
