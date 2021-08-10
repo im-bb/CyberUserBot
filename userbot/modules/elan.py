@@ -3,10 +3,12 @@
 # PLEASE DON'T DELETE THIS LINES (IF YOU KANG) #
 
 from telethon import events
+from userbot.cmdhelp import CmdHelp
 import asyncio
 from userbot.events import register
 
 @register(outgoing=True, pattern="^.elan ?(.*)")
+@register(outgoing=True, pattern="^.duyuru ?(.*)")
 async def elan(event):
     mesaj = event.pattern_match.group(1)
     if len(mesaj) < 1:
@@ -14,7 +16,7 @@ async def elan(event):
         return
 
     if event.is_private:
-        await event.edit("`Bu əmr sadecə qruplarda işləyir.`")
+        await event.edit("`Bu əmr sadəcə qruplarda işləyir.`")
         return
 
     chat = await event.get_chat()
@@ -42,7 +44,13 @@ async def elan(event):
         except:
             son = f"**Son elan göndərilən istifadəçi:** **Göndərilə bilmədi!**"
     
-        await event.edit(f"`Bütün istifadəçilərivizə elan göndərilir...`\n{son}\n\n**Durum:** `{a}/{len(all_participants)}`")
+        await event.edit(f"`Bütün istifadəçilərivizə elan göndərilir...`\n{son}\n\n**Status:** `{a}/{len(all_participants)}`")
         await asyncio.sleep(0.5)
 
     await event.edit("`Bütün istifadəçilərinizə elan göndərildi!`")
+
+    
+Help = CmdHelp('elan')
+Help.add_command('elan', '<admin və ya sahibi olduğunuz qrupda yazın>', 'Admini və ya sahibi olduğunuz qrupda yazdığınız mesajı istifadəçilərə göndərər.')
+Help.add_info('@TheCyberUserBot')
+Help.add()    
