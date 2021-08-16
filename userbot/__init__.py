@@ -131,7 +131,8 @@ ALIVE_LOGO = os.environ.get(
 ZIP_DOWNLOAD_DIRECTORY = os.environ.get("ZIP_DOWNLOAD_DIRECTORY") or "./zips"
 
 # Alive mesajı üçün ".set var DEFAULT_NAME Adınız"
-DEFAULT_NAME = os.environ.get("DEFAULT_NAME","Sahib")
+istifadeci = await bot.get_me()
+DEFAULT_NAME = f"({istifadeci.first_name}")
 
 # Güncəlləmə üçün
 HEROKU_MEMEZ = sb(os.environ.get("HEROKU_MEMEZ", "False"))
