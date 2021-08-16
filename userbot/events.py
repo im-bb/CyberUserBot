@@ -20,10 +20,10 @@ from userbot import bot, BOTLOG_CHATID, CYBER_VERSION, LOGSPAMMER, PATTERNS, JAR
 
 
 def register(**args):
-    stack = inspect.stack()
-    cyber_stack_frame = stack[1]
-    file_test = Path(cyber_stack_frame.filename)
-    file_test = file_test.stem.replace(".py", "")
+    #stack = inspect.stack()
+    #cyber_stack_frame = stack[1]
+    #file_test = Path(cyber_stack_frame.filename)
+    #file_test = file_test.stem.replace(".py", "")
     pattern = args.get('pattern', None)
     disable_edited = args.get('disable_edited', False)
     groups_only = args.get('groups_only', False)
