@@ -130,8 +130,8 @@ ALIVE_LOGO = os.environ.get(
 # Zip modulu üçün
 ZIP_DOWNLOAD_DIRECTORY = os.environ.get("ZIP_DOWNLOAD_DIRECTORY") or "./zips"
 
-# Alive mesajı üçün ".set var DEFAULT_NAME Adınız"
-istifadeci = await bot.get_me()
+    istifadeci = bot.get_me()
+    
 DEFAULT_NAME = f"{istifadeci.first_name}"
 
 # Güncəlləmə üçün
