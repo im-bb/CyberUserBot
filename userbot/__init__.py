@@ -130,10 +130,6 @@ ALIVE_LOGO = os.environ.get(
 # Zip modulu üçün
 ZIP_DOWNLOAD_DIRECTORY = os.environ.get("ZIP_DOWNLOAD_DIRECTORY") or "./zips"
 
-    istifadeci = bot.get_me()
-    
-DEFAULT_NAME = f"{istifadeci.first_name}"
-
 # Güncəlləmə üçün
 HEROKU_MEMEZ = sb(os.environ.get("HEROKU_MEMEZ", "False"))
 HEROKU_APPNAME = os.environ.get("HEROKU_APPNAME", None)
@@ -348,6 +344,8 @@ with bot:
     me = bot.get_me()
     uid = me.id
     CYBER_USERNAME = bot.get_me()
+    istifadeci = bot.get_me()
+    DEFAULT_NAME = f"{istifadeci.first_name}"
     cyber_m = me.id
     cyber_mention = f"[{CYBER_USERNAME}](tg://user?id={cyber_m})"
 
