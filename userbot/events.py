@@ -9,6 +9,9 @@ from asyncio import create_subprocess_shell as asyncsubshell
 from asyncio import subprocess as asyncsub
 from os import remove
 from time import gmtime, strftime
+from pathlib import Path
+import re
+import inspect
 from traceback import format_exc
 
 from telethon import events
@@ -17,7 +20,10 @@ from userbot import bot, BOTLOG_CHATID, CYBER_VERSION, LOGSPAMMER, PATTERNS, JAR
 
 
 def register(**args):
-    """ Yeni bir etkinlik qeyd edin. """
+    stack = inspect.stack()
+    cyber_stack_frame = stack[1]
+    file_test = Path(cyber_stack_frame.filename)
+    file_test = file_test.stem.replace(".py", "")
     pattern = args.get('pattern', None)
     disable_edited = args.get('disable_edited', False)
     groups_only = args.get('groups_only', False)
@@ -87,7 +93,7 @@ def register(**args):
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
                     eventtext = str(check.text)
-                    text = "CYBΞRLOG\n"
+                    text = "**CYBΞR ERROR LOG**\n"
                     link = "[CYBΞR Dəstək Qrupuna](https://t.me/TheCyberSupport)"
                     if len(eventtext)<10:
                         text += f"\n**⚙ Səbəb:** {eventtext}\n"
