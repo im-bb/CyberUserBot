@@ -212,6 +212,7 @@ async def dyno_usage(dyno):
                 "│ Bu ay üçün istifadə etdiyiniz dyno saatı: \n"
                 f"│  ▸ `{AppHours}` saat - `{AppMinutes}` dəqiqə. \n"
                 f"│  ▸ Faizlə: `{AppPercentage}%` \n"
+                f"│  ▸ Proqram adı: `({HEROKU_APPNAME})` \n"
                 "├┈──────────────────┈╮ \n"
                 "│ Bu ay üçün qalan dyno saatı: \n"
                 f"│  ▸ `{hours}` saat - `{minutes}` dəqiqə. \n"
