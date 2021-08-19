@@ -95,6 +95,7 @@ AUTO_UPDATE =  sb(os.environ.get("AUTO_UPDATE", "True"))
 
 # UserBot log özəlliyi
 BOTLOG = sb(os.environ.get("BOTLOG", "False"))
+BOTLOG_TAGGER = os.environ.get("BOTLOG_TAGGER", "DEAKTIV")
 LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "False"))
 
 # CYBER
