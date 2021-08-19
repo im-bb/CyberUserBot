@@ -222,28 +222,6 @@ async def dyno_usage(dyno):
                 f"🧞‍♂️ **Sahibim:** `{istifadeci.first_name}` \n"
             )
 
-@register(outgoing=True, pattern=r"^\.log")
-async def _(dyno):
-    try:
-        Heroku = heroku3.from_key(HEROKU_APIKEY)
-        app = Heroku.app(HEROKU_APPNAME)
-    except BaseException:
-        return await dyno.reply(
-            "`Zəhmət olmasa,Heroku VARS'da Heroku API Key və Heroku APP name'in düzgün olduğundan əmin olun.`"
-        )
-    await dyno.edit("`Log gətirilir....`")
-    with open("logs.txt", "w") as log:
-        log.write(app.get_log())
-    fd = codecs.open("logs.txt", "r", encoding="utf-8")
-    data = fd.read()
-    key = (requests.post("https://nekobin.com/api/documents",
-                         json={"content": data}) .json() .get("result") .get("key"))
-    url = f"https://nekobin.com/raw/{key}"
-    await dyno.edit(f"`Heroku loq'u :`\n\n: [CYBER LOG]({url})")
-    return os.remove("logs.txt")
-
-
-
 CmdHelp('heroku').add_command(
 'dyno', None, 'Dyno saatı haqqında məlumat verir..'
     ).add_command(
@@ -252,6 +230,4 @@ CmdHelp('heroku').add_command(
         'get var', None, 'Mövcud VARlarınızı əldə edin, yalnız botlog qrupunuzda istifadə edin.'
     ).add_command(
         'del var', None, 'del var <Var adı> Seçdiyiniz ConfigVarı silər sildikdən sonra botunuza .restart atın.'
-    ).add_command(
-        'log', None, 'Heroku logunuza baxın'
     ).add()
