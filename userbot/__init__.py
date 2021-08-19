@@ -357,8 +357,15 @@ with bot:
             if not event.message.from_id == uid:
                 await event.reply(f'Salam mən @TheCyberUserBot!\nMən sahibimə {DEFAULT_NAME}-ə kömək etmək üçün varam, yəni sənə kömək edə bilmərəm.\nAmma sən də özünə C Y B Ξ R qura bilərsən.')
             else:
-                await event.reply(f'`Salam mən @TheCyberUserBot!\nMən sahibimə {DEFAULT_NAME}-ə kömək etmək üçün varam, yəni sənə kömək edə bilmərəm.\nAmma sən də özünə C Y B Ξ R qura bilərsən.')
-            
+                await event.reply(f'`Salam {DEFAULT_NAME}!\nC Y B Ξ R asistanı aktivdir.')
+          
+        @tgbot.on(NewMessage(pattern='/help'))
+        async def helpmesaji(event):
+            if not event.message.from_id == SAHIB_ID:
+                await event.reply(f'Salam mən @TheCyberUserBot!\nMən sahibimə {DEFAULT_NAME}-ə kömək etmək üçün varam, yəni sənə kömək edə bilmərəm.\nAmma sən də özünə C Y B Ξ R qura bilərsən.')
+            else:
+                await event.reply(f'TEZLIKLƏ')
+                                  
         @tgbot.on(InlineQuery)  
         async def inline_handler(event):
             builder = event.builder
