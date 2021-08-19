@@ -8,10 +8,13 @@
 import twitter_scraper
 import os
 import time
+import requests
 import asyncio
 import shutil
 from bs4 import BeautifulSoup
+from shutil import rmtree
 import re
+from PIL import Image
 from time import sleep
 from html import unescape
 from re import findall
@@ -49,7 +52,8 @@ from ImageDown import ImageDown
 import base64, binascii
 import random
 from userbot.cmdhelp import CmdHelp
-from userbot.utils import chrome, googleimagesdownload, progress
+from userbot.utils import chrome, progress
+from userbot.utils.cyberimage import googleimagesdownload
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.types import DocumentAttributeAudio
 from telethon import events
@@ -333,28 +337,73 @@ async def ceviri(e):
     await e.edit(f"**Çeviri: Türkçe -> KökTürkçe**\n\n**Verilen Metin:** `{pcode}`\n**Çıktı:** `{Turk}`")
 
 
-@register(outgoing=True, pattern="^.img((\d*)| ) ?(.*)")
+@register(outgoing=True, disable_errors=True, pattern=r"^\.img(?: |$)(.*)")
 async def img_sampler(event):
-    """ .img komutu Google'da resim araması yapar. """
-    await event.edit("`İşleniyor...`")
-    query = event.pattern_match.group(3)
-    if event.pattern_match.group(2):
-        try:
-            limit = int(event.pattern_match.group(2))
-        except:
-            return await event.edit('**Xahiş edirəm düzgün bir şəkildə bir söz qeyd edin!**\nNümunə: `.img system of a down`')
+    await event.edit("`Hazırlanır...`")
+    reply = await event.get_reply_message()
+    if event.pattern_match.group(1):
+        queryo = event.pattern_match.group(1)
+    elif reply:
+        queryo = reply.message
     else:
-        limit = 5
-    await event.edit(f"`{limit} ədəd {query} fotosu yüklənir...`")
-    ig = ImageDown().Yandex(query, limit)
-    ig.get_urls()
-    paths = ig.download()
-    await event.edit('`Telegram\'a Yüklənir...`')
-    await event.client.send_file(event.chat_id, paths, caption=f'**Budur** `{limit}` **ədəd** `{query}` **fotosu**')
+        await event.edit("`Axtara bilməyim üçün bir şey verməlisən!\nNümunə: .img Cyber`"
+        )
+        return
+    query = queryo + "hd wallpaper"
+    lim = findall(r"lim=\d+", query)
+
+    try:
+        lim = lim[0]
+        lim = lim.replace("lim=", "")
+        query = query.replace("lim=" + lim[0], "")
+    except IndexError:
+        lim = 5
+    response = googleimagesdownload()
+
+ 
+    arguments = {
+        "keywords": query,
+        "limit": lim,
+        "format": "jpg",
+        "no_directory": "no_directory",
+    }
+
+
+    paths = response.download(arguments)
+    lst = paths[0][query]
+    await event.client.send_file(
+        await event.client.get_input_entity(event.chat_id), lst
+    )
+    shutil.rmtree(os.path.dirname(os.path.abspath(lst[0])))
     await event.delete()
 
-    for path in paths:
-        os.remove(path)
+    query = queryo + "ultra hd wallpaper"
+    lim = findall(r"lim=\d+", query)
+    
+    try:
+        lim = lim[0]
+        lim = lim.replace("lim=", "")
+        query = query.replace("lim=" + lim[0], "")
+    except IndexError:
+        lim = 3
+    response = googleimagesdownload()
+
+
+    arguments = {
+        "keywords": query,
+        "limit": lim,
+        "format": "jpg",
+        "no_directory": "no_directory",
+    }
+
+
+    paths = response.download(arguments)
+    lst = paths[0][query]
+    await event.client.send_file(
+        await event.client.get_input_entity(event.chat_id), lst
+    )
+    shutil.rmtree(os.path.dirname(os.path.abspath(lst[0])))
+    await event.delete()
 
 @register(outgoing=True, pattern="^.currency ?(.*)")
 async def moni(event):
