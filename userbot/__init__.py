@@ -356,6 +356,8 @@ with bot:
         async def start_bot_handler(event):
             if not event.message.from_id == uid:
                 await event.reply(f'Salam mən @TheCyberUserBot!\nMən sahibimə {DEFAULT_NAME}-ə kömək etmək üçün varam, yəni sənə kömək edə bilmərəm.\nAmma sən də özünə C Y B Ξ R qura bilərsən.')
+            else:
+                await event.reply(f'`Salam mən @TheCyberUserBot!\nMən sahibimə {DEFAULT_NAME}-ə kömək etmək üçün varam, yəni sənə kömək edə bilmərəm.\nAmma sən də özünə C Y B Ξ R qura bilərsən.')
             
         @tgbot.on(InlineQuery)  
         async def inline_handler(event):
