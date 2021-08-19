@@ -85,7 +85,7 @@ async def salive(alive):
         await alive.delete()
 
         
-@register(incoming=True, from_users=SUPPORT, pattern="^.wlive$")
+@register(incoming=True, from_users=SUPPORT, disable_errors=True, pattern="^.wlive$")
 @register(incoming=True, from_users=JARVIS, pattern="^.alive$")
 async def jarvisalive(jarvis):
     if jarvis.fwd_from:
