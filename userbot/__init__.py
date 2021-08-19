@@ -348,16 +348,15 @@ with bot:
     istifadeci = bot.get_me()
     DEFAULT_NAME = f"{istifadeci.first_name}"
     cyber_m = me.id
+    SAHIB_ID = me.id
     cyber_mention = f"[{CYBER_USERNAME}](tg://user?id={cyber_m})"
 
     try:
         @tgbot.on(NewMessage(pattern='/start'))
         async def start_bot_handler(event):
             if not event.message.from_id == uid:
-                await event.reply(f'`Salam mən `@TheCyberUserBot`! Mən sahibimə (`@{me.username}`) kömək üçün varam, yəni sənə kömək edə bilmərəm. Amma sən də özünə C Y B Σ R qura bilərsən. Kanala bax` @TheCyberUserBot')
-            else:
-                await event.reply(f'`Salam mən `@TheCyberUserBot`! Mən sahibimə (`@{me.username}`) kömək üçün varam, yəni sənə kömək edə bilmərəm. Amma sən də özünə C Y B Σ R qura bilərsən. Kanala bax` @TheCyberUserBot`')
-
+                await event.reply(f'Salam mən @TheCyberUserBot!\nMən sahibimə {DEFAULT_NAME}-ə kömək etmək üçün varam, yəni sənə kömək edə bilmərəm.\nAmma sən də özünə C Y B Ξ R qura bilərsən.')
+            
         @tgbot.on(InlineQuery)  
         async def inline_handler(event):
             builder = event.builder
@@ -368,7 +367,7 @@ with bot:
                 veriler = (butonlastir(0, sorted(CMD_HELP)))
                 result = await builder.article(
                     f"Xahiş edirəm sadəcə .help əmrini istifadə edin.",
-                    text=f"**C Y B Σ R USERBOT** [C Y B Σ R](https://t.me/TheCyberUserBot) __işləyir...__\n\n**Yüklü olan modul sayı:** `{len(CMD_HELP)}`\n**Səhifə:** 1/{veriler[0]}",
+                    text=f"**C Y B Ξ R USERBOT**\n\n**Yüklü olan modul sayı:** `{len(CMD_HELP)}`\n**Səhifə:** 1/{veriler[0]}",
                     buttons=veriler[1],
                     link_preview=False
                 )
