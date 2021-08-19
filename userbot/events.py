@@ -28,6 +28,7 @@ def register(**args):
     disable_edited = args.get('disable_edited', False)
     groups_only = args.get('groups_only', False)
     insecure = args.get("insecure", False)
+    cyber = args.get('cyber', False)
     jarvis = args.get('jarvis', False)
     trigger_on_fwd = args.get('trigger_on_fwd', False)
     trigger_on_inline = args.get('trigger_on_inline', False)
@@ -56,6 +57,9 @@ def register(**args):
     if "trigger_on_inline" in args:
         del args['trigger_on_inline']
         
+    if 'cyber' in args:
+        del args['cyber']
+        args['outgoing'] = True      
         
     if 'jarvis' in args:
         del args['jarvis']
