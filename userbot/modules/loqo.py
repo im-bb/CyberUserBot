@@ -36,7 +36,7 @@ async def logo_gen(event):
             pics.append(i)
         id_ = random.choice(pics)
         bg_ = await id_.download_media()
-        fpath_ = glob.glob("userbot/fonts/*")
+        fpath_ = glob.glob("userbot/cyberfonts/*")
         font_ = random.choice(fpath_)
     if not bg_:
         pics = []
@@ -47,7 +47,7 @@ async def logo_gen(event):
         id_ = random.choice(pics)
         bg_ = await id_.download_media()
     if not font_:
-        fpath_ = glob.glob("userbot/fonts/*")
+        fpath_ = glob.glob("userbot/cyberfonts/*")
         font_ = random.choice(fpath_)
     if len(ad) <= 8:
         fnt_size = 150
@@ -90,7 +90,7 @@ async def logo_gen(event):
     if os.path.exists(bg_):
         os.remove(bg_)
     if os.path.exists(font_):
-        if not font_.startswith("userbot/fonts/*"):
+        if not font_.startswith("userbot/cyberfonts/"):
             os.remove(font_)
 
 Help = CmdHelp('logo')
