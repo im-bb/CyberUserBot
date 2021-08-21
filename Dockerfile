@@ -10,5 +10,7 @@ RUN npm i -g npm
 RUN mkdir /app/
 COPY . /app/
 WORKDIR /app/
+RUN git clone https://github.com/FaridDadashzade/CyberUserBot
+RUN cd CyberUserBot
 RUN python3.9 -m pip install -U -r requirements.txt
 CMD python3.9 main.py
