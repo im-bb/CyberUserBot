@@ -24,13 +24,10 @@ lxml==4.6.3
 git+https://github.com/johnwmillr/LyricsGenius.git
 lyricsgenius
 oauth2client
-pyrogram
-py-tgcalls-wrapper
 psycopg2
 pybase64>=0.4.0
 pylast==4.2.1
 pySmartDL
-pytube
 python-barcode
 python-dotenv
 youtube-dl
