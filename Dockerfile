@@ -59,4 +59,4 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # command to run on container start
-CMD [ "bash", "./run" ]
+CMD [ "python3", "main.py" ]
