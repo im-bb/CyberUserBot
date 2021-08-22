@@ -142,12 +142,6 @@ async def _(event):
         )     
         
         
-CmdHelp('shazam').add_command(
-    'shazam', '<cavab>', 'Cavab verdiyiniz səs faylını Shazamda axtarar.'
-).add()
-
-
-
 Help = CmdHelp('shazam')
 Help.add_command('shazam', '<cavab>', 'Cavab verdiyiniz səs faylını Shazamda axtarar.')
 Help.add_command('shazam2', '<cavab>', 'Cavab verdiyiniz səs faylını @auddbot-da axtarar.')
