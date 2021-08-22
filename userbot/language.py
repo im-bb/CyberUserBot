@@ -12,7 +12,7 @@ from os import path, remove
 from telethon.tl.types import InputMessagesFilterDocument
 
 pchannel = bot.get_entity(PLUGIN_CHANNEL_ID)
-LOGS.info("Dil fayli yuklenir...")
+LOGS.info("The language file is being downloaded..")
 LANGUAGE_JSON = None
 
 for dil in bot.iter_messages(pchannel, filter=InputMessagesFilterDocument):
@@ -36,7 +36,7 @@ for dil in bot.iter_messages(pchannel, filter=InputMessagesFilterDocument):
             except JSONDecodeError:
                 dil.delete()
                 if path.isfile("./userbot/language/DEFAULT.cyberjson"):
-                    LOGS.warn("Varsayılan dil dosyası kullanılıyor...")
+                    LOGS.warn("The default language file is used..")
                     LANGUAGE_JSON = loads(open(f"./userbot/language/DEFAULT.cyberjson", "r").read())
                 else:
                     raise Exception("Your language file is invalid")
