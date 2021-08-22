@@ -24,7 +24,6 @@ lxml==4.6.3
 git+https://github.com/johnwmillr/LyricsGenius.git
 lyricsgenius
 oauth2client
-psycopg2
 pyrogram
 py-tgcalls-wrapper
 pytube
