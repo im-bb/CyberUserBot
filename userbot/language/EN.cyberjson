@@ -29,11 +29,11 @@
             "ALREADY_DELETED": "`The Plugin file has already deleted.`",
             "NOT_FOUND_PLUGIN": "`Maybe there was such a plugin, maybe there wasn't. But it's definitely not right now.`",
             "PLUG_DELETED": "`Plugin deleted successfully!` '**You need to restart operations to be implemented.**",
-            "CYBER_PLUGIN_CAPTION": "This is a plugin of [C Y B Σ R](https://t.me/TheCyberUserBot)."
+            "CYBER_PLUGIN_CAPTION": "This is a plugin of [C Y B Ξ R](https://t.me/TheCyberUserBot)."
         },
         "__cyber": {
-            "NEED_PLUGIN": "Please specify an C Y B Σ R module name.",
-            "NEED_MODULE": "Please specify which C Y B Σ R module you want help for !!\nUse: .cyber <module name>"
+            "NEED_PLUGIN": "Please specify an C Y B Ξ R module name.",
+            "NEED_MODULE": "**C Y B Ξ R USERBOT HELPER** \n▬▬▬▬▬▬▬▬▬▬▬▬\n**Use:** `.cyber <module name>`"
         },
         "__helpme": {
             "NO_BOT": "`The Bot doesn't work! Please set the Bot token and Username correctly. Module aborted.`"
@@ -49,7 +49,7 @@
             "INVALID_MEDIA": "```Invalid media.```",
             "PRIVATE": "`This command cannot be used in a private message!`",
             "EKLE": "`Added successfully`",
-            "BRAIN": "`Error! I can't do this to the C Y B Σ R Admin.`",
+            "BRAIN": "`Error! I can't do this to the C Y B Ξ R Admin.`",
             "BANNING": "`User banning...`",
             "ALREADY_GBANNED": "`Error! User already globally banned.`",
             "GBANNED_REASON": "`The user is banned globally!`\n**Cause:**",
@@ -339,8 +339,8 @@
             "RESTARTING": "`Bot restarting...`",
             "SUPPORT_GROUP": "[From Here](http://t.me/TheCyberSupport) you can contact our support group.",
             "CREATOR": "This bot was developed by\n[Farid](https://t.me/Luciferxz)",
-            "README": "[C Y B Σ R README.md](https://github.com/fariddadashzade/cyberuserbot/blob/main/README.md)",
-            "REPO": "[C Y B Σ R Repo](https://github.com/FaridDadashzade/Cyberuserbot)",
+            "README": "[C Y B Ξ R README.md](https://github.com/fariddadashzade/cyberuserbot/blob/master/README.md)",
+            "REPO": "[C Y B Ξ R Repo](https://github.com/FaridDadashzade/CyberUserBot)",
             "CHECK_LOGS": "`Check userbot logs for decoded message!`"
         },
         "notes": {
@@ -542,7 +542,7 @@
             "NOT_FOUND": "folder not found.",
             "GIT_ERROR": "Git error!",
             "NOT_GIT": "folder does not look like a git repo. \nBut you can solve this problem by forcibly updating the bot with the .update now command.",
-            "INVALID_BRANCH": "**[UPDATER]: * * ` I think you've modified the C Y B Σ R bot and you're using your own branch.\nThis confuses the Updater,\nWhere will the update be pulled?\nPlease use the C Y B Σ R bot from the official repo.`",
+            "INVALID_BRANCH": "**[UPDATER]: * * ` I think you've modified the C Y B Ξ R bot and you're using your own branch.\nThis confuses the Updater,\nWhere will the update be pulled?\nPlease use the C Y B Σ R bot from the official repo.`",
             "UPDATE": "\n`Your bot` **completely up to date!** `Branch:` **{}**\n",
             "WAS_UPDATE": "New update available for ** { }!\n\nChanges: **\n ` {} `",
             "BIG": "`The change list is too large, you should display it as a file.`",
