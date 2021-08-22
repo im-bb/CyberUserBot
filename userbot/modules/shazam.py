@@ -1,13 +1,9 @@
 # Copyright (C) 2020 Yusuf Usta.
 #
-# Licensed under the GPL-3.0 License;
-# you may not use this file except in compliance with the License.
-#
-
-# TheCyberUserBot - Luciferxz
 # Telegram @Fusuf
-
 # Coded by @Fusuf
+
+# CYBERUSERBOT
 
 from pydub import AudioSegment
 from json import dumps
@@ -19,10 +15,10 @@ from os import remove
 import urllib.parse
 from userbot.cmdhelp import CmdHelp
 
-@register(outgoing=True, pattern="^.shazam")
+@register(outgoing=True, pattern=r"^\.shazam(?: |$)(.*)")
 async def shazam(event):
     if not event.is_reply:
-        return await event.edit('`Zəhmət olmasa bir səs dosyasına cavab verin!`')
+        return await event.edit('`Zəhmət olmasa bir səs faylına cavab verin!`')
     else:
         await event.edit('`⬇️ Səs faylı yüklənir...`')
         reply_message = await event.get_reply_message()
@@ -108,6 +104,52 @@ async def shazam(event):
             await event.edit(Caption)  
         remove(dosya)
 
+
+
+@register(outgoing=True, pattern=r"^\.shazam2(?: |$)(.*)")
+async def _(event):
+    if not event.reply_to_msg_id:
+        return await event.edit("`Zəhmət olmasa musiqi faylına cavab verin.`")
+    reply_message = await event.get_reply_message()
+    chat = "@auddbot"
+    try:
+        async with event.client.conversation(chat) as conv:
+            try:
+                await event.edit("`Musiqi skan edilir...`")
+                start_msg = await conv.send_message("/start")
+                await conv.get_response()
+                send_audio = await conv.send_message(reply_message)
+                check = await conv.get_response()
+                if not check.text.startswith("Audio received"):
+                    return await event.edit(
+                        "`Mahnı tanınarkən xəta baş verdi.\n5-10 saniyə uzunluğunda bir səs mesajı istifadə etməyə çalışın.`"
+                    )
+                await event.edit("`Bir az gözləyin...`")
+                result = await conv.get_response()
+                await event.client.send_read_acknowledge(conv.chat_id)
+            except YouBlockedUserError:
+                await event.edit("**Hmm deyəsən @auddbot bloklamısan.\nBloku aç sonra yenidən yoxla.**")
+                return
+            namem = f"**Mahnı adı:** `{result.text.splitlines()[0]}`\
+        \n\n**Detallar:** `{result.text.splitlines()[2]}`"
+            await event.edit(namem)
+            await event.client.delete_messages(
+                conv.chat_id, [start_msg.id, send_audio.id, check.id, result.id]
+            )
+    except TimeoutError:
+        return await event.edit(
+            "**Xəta: @auddbot cavab vermir, daha sonra yenidən cəhd edin**"
+        )     
+        
+        
 CmdHelp('shazam').add_command(
-    'shazam', '<yanıt>', 'Cavab verdiyiniz səs faylını Shazamda axtarar.'
+    'shazam', '<cavab>', 'Cavab verdiyiniz səs faylını Shazamda axtarar.'
 ).add()
+
+
+
+Help = CmdHelp('shazam')
+Help.add_command('shazam', '<cavab>', 'Cavab verdiyiniz səs faylını Shazamda axtarar.')
+Help.add_command('shazam2', '<cavab>', 'Cavab verdiyiniz səs faylını @auddbot-da axtarar.')
+Help.add_info('@TheCyberUserBot')
+Help.add()    
