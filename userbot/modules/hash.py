@@ -5,14 +5,15 @@
 
 from subprocess import PIPE
 from subprocess import run as runapp
-import pybase64
-from userbot import CMD_HELP
-from userbot.events import register
-from userbot.cmdhelp import CmdHelp
 
-@register(outgoing=True, pattern="^.hash (.*)")
+import pybase64
+
+from userbot.cmdhelp import CmdHelp
+from userbot.events import register
+
+
+@register(outgoing=True, pattern=r"^\.hash (.*)")
 async def gethash(hash_q):
-    """ .hash """
     hashtxt_ = hash_q.pattern_match.group(1)
     hashtxt = open("hashdis.txt", "w+")
     hashtxt.write(hashtxt_)
@@ -26,8 +27,19 @@ async def gethash(hash_q):
     sha512 = runapp(["sha512sum", "hashdis.txt"], stdout=PIPE)
     runapp(["rm", "hashdis.txt"], stdout=PIPE)
     sha512 = sha512.stdout.decode()
-    ans = ("Text: `" + hashtxt_ + "`\nMD5: `" + md5 + "`SHA1: `" + sha1 +
-           "`SHA256: `" + sha256 + "`SHA512: `" + sha512[:-1] + "`")
+    ans = (
+        "Text: `"
+        + hashtxt_
+        + "`\nMD5: `"
+        + md5
+        + "`SHA1: `"
+        + sha1
+        + "`SHA256: `"
+        + sha256
+        + "`SHA512: `"
+        + sha512[:-1]
+        + "`"
+    )
     if len(ans) > 4096:
         hashfile = open("hashes.txt", "w+")
         hashfile.write(ans)
@@ -36,26 +48,28 @@ async def gethash(hash_q):
             hash_q.chat_id,
             "hashes.txt",
             reply_to=hash_q.id,
-            caption="`Çox büyükdür, bunun yerinə bir mətin faylı göndərilir. `")
+            caption="`Çox böyük olduğundan fayl kimi göndərdim. `",
+        )
         runapp(["rm", "hashes.txt"], stdout=PIPE)
     else:
         await hash_q.reply(ans)
 
 
-@register(outgoing=True, pattern="^.base64 (en|de) (.*)")
+@register(outgoing=True, pattern=r"^\.base64 (en|de) (.*)")
 async def endecrypt(query):
-    """ .base64 """
     if query.pattern_match.group(1) == "en":
-        lething = str(
-            pybase64.b64encode(bytes(query.pattern_match.group(2),
-                                     "utf-8")))[2:]
-        await query.reply("Encoded: `" + lething[:-1] + "`")
+        lething = str(pybase64.b64encode(
+            bytes(query.pattern_match.group(2), "utf-8")))[2:]
+        await query.reply("Kodlandı: `" + lething[:-1] + "`")
     else:
         lething = str(
-            pybase64.b64decode(bytes(query.pattern_match.group(2), "utf-8"),
-                               validate=True))[2:]
-        await query.reply("Decoded: `" + lething[:-1] + "`")
+            pybase64.b64decode(
+                bytes(query.pattern_match.group(2), "utf-8"), validate=True
+            )
+        )[2:]
+        await query.reply("Şifrə açıldı: `" + lething[:-1] + "`")
 
+        
 CmdHelp('hash').add_command(
     'base64', None, 'Verilən dizenin base64 kodlamasını tapın'
 ).add_command(
