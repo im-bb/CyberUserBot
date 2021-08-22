@@ -1,5 +1,4 @@
-# CYBERUSERBOT - Luciferxz
-
+# CYBERUSERBOT - FaridDadashzade
 
 import re
 import userbot.modules.sql_helper.mesaj_sql as sql
@@ -17,6 +16,7 @@ LANG = get_value("degistir")
 
 @register(outgoing=True, pattern="^.deyisdir ?(.*)")
 @register(outgoing=True, pattern="^.değiştir ?(.*)")
+@register(outgoing=True, pattern="^.change ?(.*)")
 async def degistir(event):
     plugin = event.pattern_match.group(1)
     mesaj = re.search(r"\"(.*)\"", plugin)
