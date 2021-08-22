@@ -25,6 +25,9 @@ git+https://github.com/johnwmillr/LyricsGenius.git
 lyricsgenius
 oauth2client
 psycopg2
+pyrogram
+py-tgcalls-wrapper
+pytube
 pybase64>=0.4.0
 pylast==4.2.1
 pySmartDL
