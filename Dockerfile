@@ -1,11 +1,7 @@
 # Sürətli və rahat qurulum üçün ;)
 
-FROM gengkapak/impish:userbot
-
-RUN git clone -b master https://github.com/FaridDadashzade/CyberUserBot /home/gengkapak/dclxvi/
-RUN mkdir /home/gengkapak/dclxvi/bin/
-WORKDIR /home/gengkapak/dclxvi/
-
-EXPOSE 80 443
-
-CMD ["python3","-m","userbot"]
+FROM cyberuserbot/cyberspaceaz:latest
+RUN git clone https://github.com/FaridDadashzade/CyberUserBot /root/CyberUserBot
+WORKDIR /root/CyberUserBot/
+RUN pip3 install -r requirements.txt
+CMD ["python3", "main.py"]
