@@ -56,7 +56,7 @@ if CONFIG_CHECK:
 # Bot'un dili
 LANGUAGE = os.environ.get("LANGUAGE", "DEFAULT").upper()
 
-if not LANGUAGE in ["EN", "TR", "AZ", "UZ", "DEFAULT"]:
+if not LANGUAGE in ["EN", "TR", "AZ", "UZ", "DEFAULT", "IN"]:
     LOGS.info("Bilinməyən bir dil yazdınız. Buna görə DEFAULT istifadə edilir.")
     LANGUAGE = "DEFAULT"
     
