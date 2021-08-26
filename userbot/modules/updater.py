@@ -77,12 +77,12 @@ async def upstream(ups):
         origin = repo.create_remote('upstream', off_repo)
         origin.fetch()
         force_update = True
-        repo.create_head('master', origin.refs.seden)
+        repo.create_head('cyberdev', origin.refs.seden)
         repo.heads.seden.set_tracking_branch(origin.refs.sql)
         repo.heads.seden.checkout(True)
 
     ac_br = repo.active_branch.name
-    if ac_br != 'master':
+    if ac_br != 'cyberdev':
         await ups.edit(LANG['INVALID_BRANCH'])
         repo.__del__()
         return
