@@ -87,6 +87,7 @@ def register(**args):
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
                     eventtext = str(check.text)
+                    xetatext = str(sys.exc_info()[1])
                     text = "CYBΞRLOG\n"
                     link = "[CYBΞR Dəstək Qrupuna](https://t.me/TheCyberSupport)"
                     if len(eventtext)<10:
@@ -134,7 +135,7 @@ def register(**args):
                             await check.edit("`Bağışlayın,\n ℹ️ Xəta günlükləri UserBot günlük qrupunda saxlanılır.`")
                         except:
                             pass
-                    await client.send_message(ftext)
+                    await client.send_message(xetatext)
 
             else:
                 pass
