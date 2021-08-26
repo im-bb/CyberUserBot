@@ -88,47 +88,10 @@ def register(**args):
 
                     eventtext = str(check.text)
                     xetatext = str(sys.exc_info()[1])
-                    text = "CYBΞRLOG\n"
-                    link = "[CYBΞR Dəstək Qrupuna](https://t.me/TheCyberSupport)"
-                    if len(eventtext)<10:
-                        text += f"\n**⚙ Səbəb:** {eventtext}\n"
-                    text += "\n🔸️ İstəsəniz bunu bizə bildirə bilərsiniz."
-                    text += f" Sadəcə bu mesajı {link} göndərin.\n"
-                    text += "Xəta və tarix xaricində heç bir şey qeyd edilmir.\n"
-
-                    ftext = "========== XEBERDARLIQ =========="
-                    ftext += "\nBu fayl sadəcə bura yüklənib,"
-                    ftext += "\nSadəcə xəta və tarixi qeyd edirik,"
-                    ftext += "\nGizliliyiniz bizim üçün önəmlidir,"
-                    ftext += "\nBurada hər hansı bir gizli məlumat olarsa"
-                    ftext += "\nBu xəta bildirişi olmaz, heç kəs sizin məlumatlarınızı oğurlaya bilməz.\n"
-                    ftext += "--------USERBOT XƏTA LOG--------\n"
-                    ftext += "\nTarix: " + date
-                    ftext += "\nQrup ID: " + str(check.chat_id)
-                    ftext += "\nGöndərən adamın ID: " + str(check.sender_id)
                     ftext += "\n\nƏmr:\n"
                     ftext += str(check.text)
                     ftext += "\n\nXəta mətni:\n"
                     ftext += str(sys.exc_info()[1])
-                    ftext += "\n\n\nDaha ətraflı:\n"
-                    ftext += str(format_exc())
-                    ftext += "\n\n--------USERBOT XETA LOGU SON--------"
-                    ftext += "\n\n================================\n"
-                    ftext += f"====== ⚠️ Version : {CYBER_VERSION} ======\n"
-                    ftext += "================================"
-
-                    command = "git log --pretty=format:\"%an: %s\" -5"
-
-                    ftext += "\n\n\nSon 5 dəyişiklik:\n"
-
-                    process = await asyncsubshell(command,
-                                                  stdout=asyncsub.PIPE,
-                                                  stderr=asyncsub.PIPE)
-                    stdout, stderr = await process.communicate()
-                    result = str(stdout.decode().strip()) \
-                        + str(stderr.decode().strip())
-
-                    ftext += result
                     
                     if LOGSPAMMER:
                         try:
