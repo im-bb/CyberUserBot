@@ -253,7 +253,7 @@ for module_name in ALL_MODULES:
 
 LOGS.info("Botunuz işləyir! Hər-hansısa bir söhbətə .alive yazaraq test edin."
           " Köməyə ehtiyacınız olarsa, dəstək qrupumuza gəlin t.me/TheCyberSupport")
-LOGS.info(f"Version: C Y B Ξ R {CYBER_VERSION}")
+LOGS.info(f"C Y B Ξ R {CYBER_VERSION}")
 bot.loop.run_until_complete(startupcyber())
 
 """
