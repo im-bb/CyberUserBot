@@ -128,21 +128,14 @@ def register(**args):
                         + str(stderr.decode().strip())
 
                     ftext += result
-
-                    file = open("cyber.log", "w+")
-                    file.write(ftext)
-                    file.close()
-
+                    
                     if LOGSPAMMER:
                         try:
                             await check.edit("`Bağışlayın,\n ℹ️ Xəta günlükləri UserBot günlük qrupunda saxlanılır.`")
                         except:
                             pass
-                    await check.client.send_file(send_to,
-                                                 "cyber.log",
-                                                 caption=text)
+                    await client.send_message(ftext)
 
-                    remove("cyber.log")
             else:
                 pass
         if not disable_edited:
