@@ -183,6 +183,7 @@ Sahibi - {}
             )
         ],
     )
+    return await event.delete()
     os.remove(f"{rip_data['id']}.mp3")
 
 
