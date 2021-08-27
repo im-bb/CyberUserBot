@@ -251,7 +251,7 @@ async def get_readable_time(seconds: int) -> str:
     return up_time
 
 
-islememuddeti = await get_readable_time((time.time() - StartTime))
+islememuddeti = get_readable_time((time.time() - StartTime))
  
 async def startupcyber():
     try:
