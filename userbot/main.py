@@ -5,6 +5,7 @@
 import importlib
 from importlib import import_module
 from sqlite3 import connect
+import time
 import os
 import requests
 from telethon.tl.types import InputMessagesFilterDocument
