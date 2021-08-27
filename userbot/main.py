@@ -10,7 +10,7 @@ import requests
 from telethon.tl.types import InputMessagesFilterDocument
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 from telethon.tl.functions.channels import GetMessagesRequest
-from . import BRAIN_CHECKER, LOGS, bot, PLUGIN_CHANNEL_ID, CMD_HELP, LANGUAGE, CYBER_VERSION, PATTERNS, BOTLOG_CHATID, BOTLOG
+from . import BRAIN_CHECKER, LOGS, bot, PLUGIN_CHANNEL_ID, CMD_HELP, LANGUAGE, CYBER_VERSION, PATTERNS, BOTLOG_CHATID, BOTLOG, StartTime
 from .modules import ALL_MODULES
 import userbot.modules.sql_helper.mesaj_sql as MSJ_SQL
 import userbot.modules.sql_helper.galeri_sql as GALERI_SQL
@@ -226,10 +226,36 @@ except PhoneNumberInvalidError:
     print(INVALID_PH)
     exit(1)
     
-    
+async def get_readable_time(seconds: int) -> str:
+    count = 0
+    up_time = ""
+    time_list = []
+    time_suffix_list = ["saniyə", "dəqiqə", "saat", "gün"]
+
+    while count < 4:
+        count += 1
+        remainder, result = divmod(seconds, 60) if count < 3 else divmod(seconds, 24)
+        if seconds == 0 and remainder == 0:
+            break
+        time_list.append(int(result))
+        seconds = int(remainder)
+
+    for x in range(len(time_list)):
+        time_list[x] = str(time_list[x]) + time_suffix_list[x]
+    if len(time_list) == 4:
+        up_time += time_list.pop() + ", "
+
+    time_list.reverse()
+    up_time += ", ".join(time_list)
+
+    return up_time
+
+
+islememuddeti = await get_readable_time((time.time() - StartTime))
+ 
 async def startupcyber():
     try:
-        await bot.send_message(QRUP, f"Salam! mən C Y B Ξ R UserBot\nBotumuzu qurduğunuz üçün təşəkkür edirəm!\nBotunuz aktivdir.\nC Y B Ξ R: {CYBER_VERSION}\n\nYardıma ehtiyyacınız olarsa @TheCyberSupport qrupuna yazın :)")
+        await bot.send_message(QRUP, f"Salam! mən C Y B Ξ R UserBot\nBotumuzu qurduğunuz üçün təşəkkür edirəm!\nBotunuz aktivdir.\n\nC Y B Ξ R: **{CYBER_VERSION}**\nİşləmə müddəti: **{islememuddeti}**\n\nYardıma ehtiyyacınız olarsa @TheCyberSupport qrupuna yazın :)")
     except BaseException:
         print("Hmm deyəsən BOTLOG qrupunuzdan çıxmısınız və ya aktiv etməmisiniz..")    
 
