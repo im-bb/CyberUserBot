@@ -19,7 +19,7 @@ from telethon import utils
 from telethon.tl import functions
 from datetime import datetime
 from userbot.cmdhelp import CmdHelp
-from userbot import bot
+from userbot import bot, WHITELIST
 from telethon.tl.types import UserStatusEmpty, UserStatusLastMonth, UserStatusLastWeek, UserStatusOffline, UserStatusOnline, UserStatusRecently, ChatBannedRights, ChannelParticipantsKicked
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
@@ -108,7 +108,7 @@ async def gspide(rk):
     except BaseException:
         return await rkp.edit(f"**Xəta!\nNaməlum istifadəçi.**")
     if user:
-        if user.id == 1527722982:
+        if user.id in WHITELIST:
             return await rkp.edit(f"`Xəta!`\n`Bunu C Y B Σ R UserBot sahibinə edə bilmərəm!`")
         try:
             await rk.client(BlockRequest(user))
