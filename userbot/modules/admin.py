@@ -76,6 +76,8 @@ MUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=True)
 UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 # ================================================
 @register(outgoing=True, pattern="^.elave ?(.*)")
+@register(outgoing=True, pattern="^.ekle ?(.*)")
+@register(outgoing=True, pattern="^.add ?(.*)")
 async def ekle(event):
     if event.fwd_from:
         return
@@ -396,7 +398,6 @@ async def ban(bon):
         await bon.edit(
             LANG['BRAIN']
         )
-        await bon.client.send_message(bon.chat_id, LANG['BRAIN'])
         return
 
     # Hedefi yasaklayacağınızı duyurun
@@ -520,7 +521,6 @@ async def spider(spdr):
         await spdr.edit(
             LANG['BRAIN']
         )
-        await spdr.client.send_message(spdr.chat_id, LANG['BRAIN'])
         return
 
     self_user = await spdr.client.get_me()
@@ -744,7 +744,6 @@ async def gspider(gspdr):
     # Eğer kullanıcı sudo ise
     if user.id in WHITELIST:
         await gspdr.edit(LANG['BRAIN'])
-        await gspdr.client.send_message(gspdr.chat_id, LANG['BRAIN'])
         return
 
     # Başarı olursa bilgi ver
@@ -917,10 +916,8 @@ async def kick(usr):
         return
 
     # Eğer kullanıcı sudo ise
-    if user.id in BRAIN_CHECKER or user.id in WHITELIST:
-        await usr.edit(
-            LANG['BRAIN']
-        )
+    if user.id in WHITELIST:
+        await usr.edit(LANG['BRAIN'])
         return
 
     await usr.edit(LANG['KICKING'])
