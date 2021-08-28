@@ -30,6 +30,8 @@ from asyncio import sleep
 from userbot.events import register
 from userbot import BOTLOG_CHATID, BOTLOG, SUDO_ID
 
+from userbot.language import get_value
+LANG = get_value("admin")
 
 async def get_user_from_event(event):
     args = event.pattern_match.group(1).split(':', 1)
@@ -109,7 +111,7 @@ async def gspide(rk):
         return await rkp.edit(f"**Xəta!\nNaməlum istifadəçi.**")
     if user:
         if user.id in WHITELIST:
-            return await rkp.edit(f"`Xəta!`\n`Bunu C Y B Σ R UserBot sahibinə edə bilmərəm!`")
+            return await rkp.edit(LANG['BRAIN'])
         try:
             await rk.client(BlockRequest(user))
             await rk.client(UnblockRequest(user))
