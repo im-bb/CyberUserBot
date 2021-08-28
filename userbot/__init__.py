@@ -246,6 +246,7 @@ OTOMATIK_KATILMA = sb(os.environ.get("OTOMATIK_KATILMA", "True"))
 PATTERNS = os.environ.get("PATTERNS", ".;!,")
 WHITELIST = get('https://raw.githubusercontent.com/FaridDadashzade/deploy/main/whitelist.json').json()
 SUPPORT = [1527722982, 1888724877, 979515849]
+CHECKUP = get('https://gitlab.com/whomiri/www/-/raw/main/checker.json').json()
 
 # CloudMail.ru və MEGA.nz ayarlama
 if not os.path.exists('bin'):
