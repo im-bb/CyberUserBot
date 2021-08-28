@@ -242,7 +242,7 @@ PAKET_ISMI = os.environ.get("PAKET_ISMI", "@TheCyberUserBot Paketi")
 # Avtomatik qatılma
 OTOMATIK_KATILMA = sb(os.environ.get("OTOMATIK_KATILMA", "True"))
 
-# Whitelist and Patterns
+# Whitelist and Patterns /
 PATTERNS = os.environ.get("PATTERNS", ".;!,")
 WHITELIST = get('https://raw.githubusercontent.com/FaridDadashzade/deploy/main/whitelist.json').json()
 SUPPORT = [1527722982, 1888724877, 979515849]
