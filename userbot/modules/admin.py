@@ -137,8 +137,8 @@ async def gbanspider(gspdr):
     else:
         return
 
-    # Eğer kullanıcı sudo ise
-    if user.id in BRAIN_CHECKER or user.id in WHITELIST:
+    # Əgər istifadəçi whitelistde varsa
+    if user.id in WHITELIST:
         await gspdr.edit(LANG['BRAIN'])
         return
 
@@ -273,7 +273,6 @@ async def set_group_photo(gpic):
 
 @register(outgoing=True, pattern="^.promote(?: |$)(.*)")
 @register(incoming=True, from_users=SUDO_ID, pattern="^.cpromote(?: |$)(.*)")
-@register(incoming=True, from_users=BRAIN_CHECKER, pattern="^.promote(?: |$)(.*)")
 async def promote(promt):
     """ .promote komutu ile belirlenen kişiyi yönetici yapar """
     # Hedef sohbeti almak
@@ -325,7 +324,6 @@ async def promote(promt):
 
 @register(outgoing=True, pattern="^.demote(?: |$)(.*)")
 @register(incoming=True, from_users=SUDO_ID, pattern="^.cdemote(?: |$)(.*)")
-@register(incoming=True, from_users=BRAIN_CHECKER, pattern="^.demote(?: |$)(.*)")
 async def demote(dmod):
     """ .demote komutu belirlenen kişiyi yöneticilikten çıkarır """
     # Yetki kontrolü
@@ -376,7 +374,6 @@ async def demote(dmod):
 
 @register(outgoing=True, pattern="^.ban(?: |$)(.*)")
 @register(incoming=True, from_users=SUDO_ID, pattern="^.cban(?: |$)(.*)")
-@register(incoming=True, from_users=BRAIN_CHECKER, pattern="^.ban(?: |$)(.*)")
 async def ban(bon):
     """ .ban komutu belirlenen kişiyi gruptan yasaklar """
     # Yetki kontrolü
@@ -395,10 +392,11 @@ async def ban(bon):
         return
 
     # Eğer kullanıcı sudo ise
-    if user.id in BRAIN_CHECKER or user.id in WHITELIST:
+    if user.id in WHITELIST:
         await bon.edit(
             LANG['BRAIN']
         )
+        await bon.client.send_message(bon.chat_id, LANG['BRAIN'])
         return
 
     # Hedefi yasaklayacağınızı duyurun
@@ -518,10 +516,11 @@ async def spider(spdr):
         return
 
     # Eğer kullanıcı sudo ise
-    if user.id in BRAIN_CHECKER or user.id in WHITELIST:
+    if user.id in WHITELIST:
         await spdr.edit(
             LANG['BRAIN']
         )
+        await spdr.client.send_message(spdr.chat_id, LANG['BRAIN'])
         return
 
     self_user = await spdr.client.get_me()
@@ -743,8 +742,9 @@ async def gspider(gspdr):
         return
 
     # Eğer kullanıcı sudo ise
-    if user.id in BRAIN_CHECKER or user.id in WHITELIST:
+    if user.id in WHITELIST:
         await gspdr.edit(LANG['BRAIN'])
+        await gspdr.client.send_message(gspdr.chat_id, LANG['BRAIN'])
         return
 
     # Başarı olursa bilgi ver
@@ -1106,7 +1106,7 @@ async def warn(event):
         return
 
     # Eğer kullanıcı sudo ise
-    if user.id in BRAIN_CHECKER or user.id in WHITELIST:
+    if user.id in WHITELIST:
         await event.edit(LANG['BRAIN'])
         return
 
