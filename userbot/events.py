@@ -146,7 +146,7 @@ def register(**args):
 
                     if LOGSPAMMER:
                         try:
-                            await check.edit(f"`Bağışlayın,\n ℹ️ Xəta günlükləri UserBot günlük qrupunda saxlanılır. Xeta metni: {xetametni}`")
+                            await check.edit(f"**Xəta səbəbi:** `{xetametni}`\n\n**Bu mesajı** {link} **göndərin.**\n\n__CYBΞR ERROR LOG__")
                         except:
                             pass
                     await check.client.send_file(send_to,
