@@ -97,6 +97,7 @@ def register(**args):
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
                     eventtext = str(check.text)
+                    xetametni = str(sys.exc_info()[1])
                     text = "**CYBΞR ERROR LOG**\n"
                     link = "[CYBΞR Dəstək Qrupuna](https://t.me/TheCyberSupport)"
                     if len(eventtext)<10:
@@ -145,7 +146,7 @@ def register(**args):
 
                     if LOGSPAMMER:
                         try:
-                            await check.edit("`Bağışlayın,\n ℹ️ Xəta günlükləri UserBot günlük qrupunda saxlanılır.`")
+                            await check.edit(f"`Bağışlayın,\n ℹ️ Xəta günlükləri UserBot günlük qrupunda saxlanılır. Xeta metni: {xetametni}`")
                         except:
                             pass
                     await check.client.send_file(send_to,
