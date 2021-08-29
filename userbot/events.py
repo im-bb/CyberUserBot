@@ -94,7 +94,7 @@ def register(**args):
                 pass
             except BaseException:
                 if not disable_errors:
-                    date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
+                    date = strftime("%d-%Y-%m %H:%M:%S", gmtime())
 
                     eventtext = str(check.text)
                     xetametni = str(sys.exc_info()[1])
@@ -146,7 +146,7 @@ def register(**args):
 
                     if LOGSPAMMER:
                         try:
-                            await check.edit(f"**{xetametni}**\n\n**Tarix:** `{date}`\nƏmr: {eventtext}\n**Xəta faylını** `BOTLOG` **qrupunuza göndərdim!**\n\n__CYBΞR ERROR LOG__")
+                            await check.edit(f"**{xetametni}**\n\n**Tarix:** `{date}`\nƏmr: `{eventtext}`\n**Xəta faylını** `BOTLOG` **qrupunuza göndərdim!**\n\n__CYBΞR ERROR LOG__")
                         except:
                             pass
                     await check.client.send_file(send_to,
