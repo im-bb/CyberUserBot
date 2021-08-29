@@ -146,7 +146,7 @@ def register(**args):
 
                     if LOGSPAMMER:
                         try:
-                            await check.edit(f"**Xəta səbəbi:** `{xetametni}`\n\n**Bu mesajı** {link} **göndərin.**\n\n__CYBΞR ERROR LOG__")
+                            await check.edit(f"**{xetametni}**\n\n**Tarix:** `{date}`\nƏmr: {eventtext}\n**Xəta faylını** `BOTLOG` **qrupunuza göndərdim!**\n\n__CYBΞR ERROR LOG__")
                         except:
                             pass
                     await check.client.send_file(send_to,
