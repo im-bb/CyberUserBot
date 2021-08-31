@@ -1,0 +1,12 @@
+[._]*.sw[a-p]
+/venv/
+__pycache__/
+/*.py
+!/main.py
+!/cyber.py
+!/sessionyarat.py
+/*.ini
+/*.session
+/*.session-journal
+/downloads/
+/*.so
