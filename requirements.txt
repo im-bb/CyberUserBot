@@ -27,6 +27,8 @@ oauth2client
 psycopg2
 pybase64>=0.4.0
 pylast==4.2.1
+pyrogram
+py-tgcalls-wrapper
 pySmartDL
 python-barcode
 python-dotenv
