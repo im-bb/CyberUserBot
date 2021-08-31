@@ -6,7 +6,7 @@ api_hash = environ["API_HASH"]
 session_name = environ["SESSION_NAME"]
 
 plugins = dict(
-    root="plugins",
+    root="cyber",
     include=[
         "modules." + environ["PLUGIN"],
         "ping",
