@@ -196,7 +196,7 @@ YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
 
 # Saat & Tarix - Ölkə və Saat Dilimi
 COUNTRY = str(os.environ.get("COUNTRY", ""))
-TZ_NUMBER = int(os.environ.get("TZ_NUMBER", 1))
+TZ_NUMBER = int(os.environ.get("TZ_NUMBER", +5.30))
 
 # CLEAN WELCOME
 CLEAN_WELCOME = sb(os.environ.get("CLEAN_WELCOME", "True"))
