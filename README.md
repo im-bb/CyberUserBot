@@ -68,8 +68,9 @@ Help.add()
 ```
 
 ----
-#### i'm not a dev,just edited somelines of this repo to make it easy to understand-Translated some lines into English.
-<p align="center">
-  <img src="https://telegra.ph/file/1e464be45f761a810643b.png" />
+#### 𝗜𝗠_𝗕𝗕 : 𝗜'𝗠 𝗡𝗢𝗧 𝗔 𝗗𝗘𝗩 , 𝗝𝗨𝗦𝗧 𝗘𝗗𝗜𝗧𝗘𝗗 𝗦𝗢𝗠𝗘𝗟𝗜𝗡𝗘𝗦 𝗢𝗙 𝗧𝗛𝗜𝗦 𝗥𝗘𝗣𝗢 𝗧𝗢 𝗠𝗔𝗞𝗘 𝗜𝗧 𝗘𝗔𝗦𝗬 𝗧𝗢 𝗨𝗡𝗗𝗘𝗥𝗦𝗧𝗔𝗡𝗗.
+<p align="left">
+  <img src="https://telegra.ph/file/1e464be45f761a810643b.png" width=150px/>
 </p>
 
+---
