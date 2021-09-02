@@ -64,7 +64,7 @@
     },
     "TZ_NUMBER": {
       "description": "Don't edit this.",
-      "value": "+5.30",
+      "value": "1",
       "required": false
     },
     "TZ": {
