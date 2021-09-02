@@ -16,11 +16,11 @@
   "stack": "container",
   "env": {
     "API_KEY": {
-      "description": "Bu dəyəri my.telegram.org saytından alın.",
+      "description": "Get this value from https://my.telegram.org.",
       "required": true
     },
     "API_HASH": {
-      "description": "Bu dəyəri my.telegram.org saytından alın.",
+      "description": "Get this value from https://my.telegram.org",
       "required": true
     },
     "PLUGIN_CHANNEL_ID": {
@@ -36,7 +36,7 @@
       "required": false
     },
     "STRING_SESSION": {
-      "description": "python3 GenerateStringSession.py faylını yerel olaraq çalışdıraraq bu dəyəri alın.",
+      "description": "Get this value from http://replit.com/@FaridDadashzade/Cyber#main.py",
       "required": true
     },
     "HEROKU_MEMEZ": {
@@ -45,11 +45,11 @@
       "required": true
     },
     "HEROKU_APIKEY": {
-      "description": "Heroku API Key, 'https://dashboard.heroku.com/account' adresindən alın.",
+      "description": "Go to https://dashboard.heroku.com/account, scroll down and press Reveal API.Required for updater to work.",
       "value": ""
     },
     "HEROKU_APPNAME": {
-      "description": "Heroku proqram adını buraya yazın. UserBot güncəlləmələrində yardım edər.",
+      "description": "The Value of App Name you filled in right on top.Required for updater to work.",
       "required": true
     },
     "UPSTREAM_REPO_URL": {
@@ -58,32 +58,32 @@
       "required": true
     },
     "COUNTRY": {
-      "description": ".time və .date əmrləri üçün.",
-      "value": "Azerbaijan",
+      "description": "For .time and .date commands.",
+      "value": "Sri Lanka",
       "required": false
     },
     "TZ_NUMBER": {
-      "description": "Toxunmayın.",
-      "value": "1",
+      "description": "Don't edit this",
+      "value": "+5.30",
       "required": false
     },
     "TZ": {
-      "description": "Toxunmayın.",
-      "value": "Asia/Baku",
+      "description": "Don't edit this",
+      "value": "Asia/Colombo",
       "required": true  
     },
     "CHROME_DRIVER": {
-      "description": "Toxunmayın.",
+      "description": "Don't edit this",
       "value": "/usr/bin/chromedriver",
       "required": false
     },
     "GOOGLE_CHROME_BIN": {
-      "description": "Toxunmayın.",
+      "description": "Don't edit this",
       "value": "/usr/bin/chromium-browser",
       "required": false
     },
     "OPEN_WEATHER_MAP_APPID": {
-      "description": "https://api.openweathermap.org/data/2.5/weather adresindən öz APPID'inizi (API key) alın.",
+      "description": "Get your APP ID(API KEY) from the address https://api.openweathermap.org/data/2.5/weather",
       "required": false
     },
     "BOTLOG": {
@@ -91,15 +91,15 @@
       "value": "False"
     },
     "BOT_USERNAME": {
-      "description": "Bot username qeyd edin.",
+      "description": "Your Telegram Bot Username",
       "required": false  
     },
     "BOT_TOKEN": {
-      "description": "Bot tokeni qeyd edin.",
+      "description": "Your bot token from @BotFather",
       "required": false    
     },
     "GENIUS": {
-      "description": "Buraya aldığınız Genius API Token'i yazın.",
+      "description": "Buraya aldığınız Genius AP",
       "required": false
     },
     "AUTO_PP": {
@@ -197,33 +197,33 @@
       "value": "False"
     },
     "WARN_LIMIT": {
-      "description": "Kişiyi gmutelemek/gbanlamak için gerekli uyarı sayısı. Genellikle 3 kullanılır.",
+      "description": "Kişiyi gmutelemek/gbanlamak için gerekli uyarı sayısı. Genellikle 3 ",
       "value": "3",
       "required": false
     },
     "WARN_MODE": {
-      "description": "3 uyarıdan sonra gerçekleşecek olay. Sadece gmute ya da gban yazabilirsiniz. Aksi takdirde bot çalışmayabilir.",
+      "description": "The event that will occur after 3 warnings. You can just type gmute or gban. Otherwise, the bot may not work.",
       "value": "gmute",
       "required": false
     },
     "GALERI_SURE": {
-      "description": "Galeri plugini içindir. Profil fotoğrafları kaç saniye de bir değişsin?",
+      "description": "It is for gallery plugin. How many seconds should profile photos change?",
       "value": "60",
       "required": false
     },
     "PAKET_ISMI": {
-      "description": "Dızla komutu paket ismini belirleyin. Paket ismi şöyle olacaktır: @KullanıcıAdın verdiğin değer 1",
-      "value": "@TheCyberUserBot Paketi",
+      "description": "Specify the syntax command package name. The package name will be: The value you give @UserName is 1",
+      "value": "@TheCyberUserBot Package",
       "required": false
     },
     "OTOMATIK_KATILMA": {
-      "description": "Support grubuna ve Kanal'a otomatik katılmak istemiyorsanız False yazın.",
+      "description": "Type False if you don't want to automatically join the Support group and Channel.",
       "value": "True",
       "required": true
     },
     "LANGUAGE": {
-      "description": "Botun dili. EN/TR/AZ/UZ yazabilirsiniz.",
-      "value": "AZ",
+      "description": "The language of the bot. You can write EN/TR/AZ/UZ.",
+      "value": "EN",
       "required": true
     }
   },
