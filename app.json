@@ -20,7 +20,7 @@
       "required": true
     },
     "API_HASH": {
-      "description": "Get this value from https://my.telegram.org",
+      "description": "Get this value from https://my.telegram.org.",
       "required": true
     },
     "PLUGIN_CHANNEL_ID": {
@@ -28,15 +28,15 @@
       "required": false
     },
     "SPOTIFY_DC": {
-      "description": "The code needed for Spotify bio (Leave it if you don't know how tp get it)",
+      "description": "The code needed for Spotify bio. (Leave it if you don't know how tp get it).",
       "required": false
     },
     "SPOTIFY_KEY": {
-      "description": "The code needed for Spotify bio (Leave it if you don't know how tp get it)",
+      "description": "The code needed for Spotify bio. (Leave it if you don't know how tp get it).",
       "required": false
     },
     "STRING_SESSION": {
-      "description": "Get this value from http://replit.com/@FaridDadashzade/Cyber#main.py",
+      "description": "Get this value from http://replit.com/@FaridDadashzade/Cyber.",
       "required": true
     },
     "HEROKU_MEMEZ": {
@@ -83,19 +83,19 @@
       "required": false
     },
     "OPEN_WEATHER_MAP_APPID": {
-      "description": "Get your APP ID(API KEY) from the address https://api.openweathermap.org/data/2.5/weather",
+      "description": "Get your APP ID(API KEY) from the address https://api.openweathermap.org/data/2.5/weather.",
       "required": false
     },
     "BOTLOG": {
-      "description": " ",
+      "description": "Set to "True" to get logs of your bot",
       "value": "False"
     },
     "BOT_USERNAME": {
-      "description": "Your Telegram Bot Username",
+      "description": "Your Telegram Bot Username.",
       "required": false  
     },
     "BOT_TOKEN": {
-      "description": "Your bot token from @BotFather",
+      "description": "Your bot token from @BotFather.",
       "required": false    
     },
     "GENIUS": {
@@ -136,15 +136,15 @@
       "required": false
     },
     "ANTI_SPAMBOT": {
-      "description": "Kicks spambots from groups after joining. [Requires admin privileges to kick]",
+      "description": "Kicks spambots from groups after joining. (Requires admin privileges to kick).",
       "value": "False"
     },
     "ANTI_SPAMBOT_SHOUT": {
-      "description": "If you don't have admin privileges to kick, report spambots to admins after joining the group with this",
+      "description": "If you don't have admin privileges to kick, report spambots to admins after joining the group with this.",
       "value": "False"
     },
     "TMP_DOWNLOAD_DIRECTORY": {
-      "description": "Download location for many modules (GDrive, .download etc.)",
+      "description": "Download location for many modules (GDrive, .download etc.).",
       "value": "./downloads/"
     },
     "CLEAN_WELCOME": {
@@ -156,11 +156,11 @@
       "required": false
     },
     "LASTFM_API": {
-      "description": "API Key for Last.FM module. [Get one from - https://www.last.fm/api/account/create]",
+      "description": "API Key for Last.FM module. (Get one from - https://www.last.fm/api/account/create).",
       "required": false
     },
     "LASTFM_SECRET": {
-      "description": "SECRET Key for Last.FM module. [Get one from - https://www.last.fm/api/account/create]",
+      "description": "SECRET Key for Last.FM module. (Get one from - https://www.last.fm/api/account/create).",
       "required": false
     },
     "LASTFM_USERNAME": {
@@ -207,7 +207,7 @@
       "required": false
     },
     "GALERI_SURE": {
-      "description": "It is for gallery plugin. How many seconds should profile photos change?",
+      "description": "It is for gallery plugin. How many seconds should profile photos change?.",
       "value": "60",
       "required": false
     },
