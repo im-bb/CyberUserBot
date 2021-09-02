@@ -87,7 +87,7 @@
       "required": false
     },
     "BOTLOG": {
-      "description": "Set to "True" to get logs of your bot",
+      "description": "Set to 'True' to get logs of your bot",
       "value": "False"
     },
     "BOT_USERNAME": {
