@@ -66,3 +66,7 @@ Help.add()
     Bu bir açıq qaynaqlı proyektdir, CYBΞR Sahibləri və Adminləri olaraq heç bir cavabdehlik daşımırıq.
     CYBΞR quraraq bu cavabdehlikləri qəbul etmiş sayılırsınız.
 ```
+
+----
+#### i'm not a dev,just edited somelines of this repo to make it easy to understand-Translated some lines into English.
+https://telegra.ph/file/1e464be45f761a810643b.png
