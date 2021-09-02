@@ -69,4 +69,7 @@ Help.add()
 
 ----
 #### i'm not a dev,just edited somelines of this repo to make it easy to understand-Translated some lines into English.
-https://telegra.ph/file/1e464be45f761a810643b.png
+<p align="center">
+  <img src="https://telegra.ph/file/1e464be45f761a810643b.png" />
+</p>
+
